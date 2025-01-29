@@ -3,6 +3,7 @@
     padding: 0px;
     border: 2px solid black;
     flex-direction: row;
+    /* WRAP HACE QUE OCUPEN TODA LA 1 LINEA Y NO-WRAP HACE QUE SEA TODO DEL MISMO TAMAÑO DANDO IGUAL LAS LINEAS */
     flex-wrap: wrap;
     height: 70vh;
     justify-content: space-between;

@@ -19,26 +19,32 @@ body{
     list-style-type: none;
 }
 
+/* EL > SON LOS HIJOS DE ESE ELEMENTO */
 .menu__lista > li {
     color: #fff;
 }
 
+/* EL + EL ELEMENTO QUE VENGA DESPUES DE ESE ELEMENTO (SI HAY 4 menu__item SOLO SE APLICAN TODOS MENOS EL PRIMERO) */
 .menu__item + .menu__item {
     text-decoration: underline;
 }
 
+/* EL first-child ES EL PRIMER HIJO DE ESE ELEMENTO */
 .menu__lista:first-child{
     text-decoration: underline;
 }
 
+/* EL last-child ES EL ULTIMO HIJO DE ESE ELEMENTO */
 .menu__lista:last-child{
     text-decoration: underline;
 }
 
+/* EL nth-child ES EL HIJO QUE YO QUIERO EDITAR (EMPIEZA LA CUENTA EN 1) */
 .menu__lista > .menu__item:nth-child(2){
     color: red;
 }
 
+/* EL ~ ES PARA ELEMENTOS AL MISMO NIVEL, ES DECIR SOLO LOS QUE SON HERMANOS */
 .menu__item ~ .menu__item {
     color: blue;
 }
