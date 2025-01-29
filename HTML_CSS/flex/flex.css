@@ -1,0 +1,31 @@
+.flexbox{
+    display: flex;
+    padding: 0px;
+    border: 2px solid black;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 70vh;
+    justify-content: space-between;
+    align-items: start;
+
+}
+
+.flex-item{
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+.item1{
+    background-color: red;
+}
+
+.item2{
+    background-color: rgb(255, 112, 112);
+}
+
+.item3{
+    background-color: rgb(148, 0, 0);
+}
