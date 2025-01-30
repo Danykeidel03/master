@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    padding: 0;
+    text-align: center;
+}
+
+.header{
+    background-color: #4ACF50;
+    color: #fff;
+    padding: 20px;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+.content{
+    padding: 20px;
+    background-color: #c2ffc5;
+}
+
+.content p{
+    font-size: 1.2rem;
+}
+
+.cta{
+    background-color: #009a08;
+    color: #fff;
+    border: none;
+    padding: 6px 20px;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    transition: background-color 0.9s;
+}
+
+.cta:hover{
+    background-color: #4ACF50;
+}
+
+/* -------------------MEDIA QUERIES------------------- */
+
+/* PRINT */
+@media print {
+    h1{
+        font-size: 40px;
+    }
+}
+
+/* MÓVILES */
+@media screen and (max-width: 768px) {
+    h1{
+        color: #4ACF50;
+        font-size: 1.3rem;
+    }
+
+    .header{
+        background-color: #000;
+    }
+
+    .content p{
+        font-size: 0.8rem;
+    }
+}
+
+/* TABLETS */
+@media screen and (min-width: 1024px) {
+    h1{
+        color: #F00;
+        font-size: 1rem;
+    }
+
+    .header{
+        background-color: #FFF;
+    }
+
+    .content p{
+        font-size: 0.8rem;
+    }
+}

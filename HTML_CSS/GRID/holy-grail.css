@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #eee;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+.header, .footer{
+    background-color: #222;
+    color: #ddd;
+    text-align: center;
+    padding: 20px;
+}
+
+.primary{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.sidebar{
+    background-color: #460;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar.left{
+    flex: 1;
+}
+
+.sidebar.right{
+    flex: 1;
+}
+
+main{
+    flex: 4;
+    padding: 20px;
+    background-color: #a5c26c;
+}
+
+/* Móviles incluidos Iphone */
+@media (max-width: 768px){
+    .primary{
+        flex-direction: column;
+    }
+
+    .sidebar.right{
+        display: none;
+    }
+
+    .sidebar.left{
+        flex: none;
+    }
+
+}
+
+

@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-rows: repeat(3, minmax(50px, 200px));
+    grid-template-columns: minmax(40px, 350px) 40px 20px;
+    grid-auto-flow: row;
+    gap: 5px;
+}
+
+.box{
+    background-color: #5a5dff;
+    color: white;
+    font-size: 16px;
+}

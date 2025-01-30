@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="srcset.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <!-- el srcset sirve para poner la imagen que quieras al width que quieras 400w es 400 width de pantalla -->
+        <!-- 
+            el sizes sirve para hacerlo mas especifico, es para recomendar una medida con los max-width y al lado lo que quieres que ocupe, en este caso 100vw es toda la pantalla
+            y en la ultim si no se cumplen ninguna de las dos pues pasa a esa, en este caso 50vw
+        -->
+        <!-- 
+           en este caso el navegador elige la pantalla con el srcset y luego elige el tamaño de la imagen
+        -->
+        <img src="img-600.jpg" srcset="img-400.jpg 400w,
+                img-600.jpg 800w,
+                img-1200.jpg 1200w" sizes="(max-width: 480px) 100vw,
+                (max-width: 800px) 80vw,
+                50vw" alt="">
+    </div>
+</body>
+
+</html>

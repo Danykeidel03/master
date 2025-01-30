@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="picture.css">
+    <title>Picture</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Picture</h1>
+        <!--
+            el picture y los source son como un ul con los li, es decir es como una lista de imaganes y con los min-width se elige en base al tamaño de pantalla
+        -->
+        <picture>
+            <source
+            srcset="img-1200.jpg"
+            type="image/jpg"
+            media="(min-width: 1024px)">
+
+            <source
+            srcset="img-600.jpg"
+            type="image/jpg"
+            media="(min-width: 768px)">
+
+            <source
+            srcset="img-400.jpg"
+            type="image/jpg">
+
+            <img src="img-1200.jpg" alt="Test">
+        </picture>
+
+        
+    </div>
+</body>
+</html>
