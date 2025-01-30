@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     height: 70vh;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
 
 }
 
@@ -29,4 +29,16 @@
 
 .item3{
     background-color: rgb(148, 0, 0);
+}
+
+.item7 {
+    align-items: flex-start;
+    /* FLEX GROW SIRVE PARA DEVIDIR EN CAJAS */
+    flex-grow: 1;
+}
+
+.item8 {
+    align-items: flex-start;
+    /* EN ESTE CASO VA A COUPAR EL DOBLE QUE EL ITEM 7 */
+    flex-grow: 2;
 }
