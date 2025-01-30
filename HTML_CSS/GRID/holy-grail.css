@@ -5,60 +5,45 @@ body{
     background-color: #eee;
 }
 
-.container{
+.container {
     display: flex;
+    align-items: center;
+    width: 100%;
     flex-direction: column;
     min-height: 100dvh;
 }
 
 .header, .footer{
-    background-color: #222;
-    color: #ddd;
+    width: 100%;
+    background-color: red;
+    padding: 40px 0 40px 0;
     text-align: center;
-    padding: 20px;
 }
 
 .primary{
     display: flex;
-    flex-direction: row;
-    text-align: center;
+    width: 100%;
+    justify-content: space-between;
     flex-grow: 1;
 }
 
 .sidebar{
-    background-color: #460;
-    color: #fff;
-    padding: 20px;
-}
-
-.sidebar.left{
-    flex: 1;
-}
-
-.sidebar.right{
-    flex: 1;
+    background-color: aqua;
+    flex-grow: 1;
+    text-align: center;
 }
 
 main{
-    flex: 4;
-    padding: 20px;
-    background-color: #a5c26c;
+    flex-grow: 6;
+    text-align: center;
+    min-height: 100%;
 }
 
-/* Móviles incluidos Iphone */
-@media (max-width: 768px){
+@media (max-width: 480px){
     .primary{
         flex-direction: column;
     }
-
     .sidebar.right{
         display: none;
     }
-
-    .sidebar.left{
-        flex: none;
-    }
-
 }
-
-

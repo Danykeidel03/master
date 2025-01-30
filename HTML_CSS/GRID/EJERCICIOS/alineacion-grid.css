@@ -1,0 +1,48 @@
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 350px);
+    grid-template-rows: 200px;
+    gap: 10px;
+    justify-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 2px solid #000;
+}
+
+.box{
+    background-color: brown;
+    color: #fff;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.box:first-child{
+    justify-self: center;
+}
+
+.grid-h{
+    display: grid;
+    grid-template-rows: repeat(3, 50px);
+    gap: 10px;
+    align-items: center;
+    align-content: space-around;
+    padding: 10px;
+    min-height: 50dvh;
+    border: 2px solid #000;
+}
+
+.boxh{
+    background-color: brown;
+    color: #fff;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.boxh:first-child{
+    align-self: center;
+}
+
+.separador{
+    min-height: 10dvh;
+}

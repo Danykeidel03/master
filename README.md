@@ -1,1 +1,1 @@
-# Este es mi curso del master
+# LO VAS A SACR, ES EL PRIMER PASO A ALGO GRANDE

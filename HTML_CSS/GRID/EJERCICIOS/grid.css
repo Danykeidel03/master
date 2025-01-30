@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.grid{
+    display:grid;
+    margin: auto;
+    margin-top: 40px;
+    border: 5px solid black;
+    width: 80vw;
+    padding: 20px;
+    /* auto respeta el contenido y fr no */
+    /* repeat funciona como Nºveces que se repite, lo que se repite */
+    /* minmax es el valor maximo o minimo que se pueda poner */
+    /*grid-template-columns: repeat(3, 1fr 2fr);*/
+    /*grid-template-columns: minmax(500px, 1fr) 1fr;*/
+    grid-template-columns: repeat(2, minmax(100px, 300px)) 1fr;
+    grid-template-rows: 200px 100px;
+    grid-auto-flow: row;
+    grid-auto-rows: 150px;
+    /*column-gap: 20px;
+    row-gap: 10px;*/
+    gap: 20px;
+
+}
+
+.grid-item{
+    
+    background-color: #46e;
+    color: #fff;
+    padding: 10px;
+    font-size: 30px;
+}
