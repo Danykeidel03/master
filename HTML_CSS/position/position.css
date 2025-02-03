@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+}
+
+.container{
+    border: 4px solid #000;
+    margin: 20px;
+    position: relative;
+}
+
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: #890;
+    color: #fff;
+    font-size: 30px;
+}
+
+.box-blue{
+    background-color: #46e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0.3;
+    
+}
+
+.box-red{
+    background-image: url('https://picsum.photos/400');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}

@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+    background-color: #ccc;
+}
+
+.espaciador{
+    min-height: 100dvh;;
+}
+
+.box{
+    background-color: #46e;
+    padding: 80px;
+    animation-name: aparecer;
+    animation-timeline: view();
+    animation-timing-function: linear;
+    animation-range: contain 0% cover 100%;
+}
+
+.imagen{
+    background-color: #f00;
+    margin: auto;
+    width: 20%;
+    animation-name: opacity;
+    animation-timeline: view();
+    animation-timing-function: linear;
+    animation-range: cover 10% contain 60%;
+    background-image: url('https://picsum.photos/400');
+    background-size: cover;
+    min-height: 500px;
+    opacity: 1;
+}
+
+img{
+    max-width: 100%;
+    animation-name: imagen;
+    animation-timeline: view();
+    animation-timing-function: linear;
+    animation-range: contain 0% cover 100%;
+}
+
+@keyframes opacity {
+    from{
+        opacity: 0.1;
+    }
+    to{
+        opacity: 1;
+        clip-path: circle();
+    }
+}
+
+@keyframes imagen {
+    0%{
+        width: 20%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+@keyframes aparecer {
+    0%{
+        width: 0%;
+        background-color: #f00;
+    }
+    10%{
+        width: 5%;
+        background-color: #46e;
+    }
+    40%{
+        width: 35%;
+        background-color: rgb(58, 242, 255);
+    }
+    60%{
+        width: 70%;
+        background-color: rgb(0, 217, 58);
+    }
+    80%{
+        width: 90%;
+        background-color: rgb(255, 0, 208);
+    }
+    100%{
+        width: 100%;
+        background-color: rgb(0, 0, 0);
+    }
+}

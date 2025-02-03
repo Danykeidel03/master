@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    background-color: #ccc;
+}
+
+div{
+    box-sizing: border-box;
+}
+
+p{
+    font-size: 100px;
+}
+
+.espaciador{
+    min-height: 100dvh;
+}
+
+.box{
+    background-color: #fff;
+    border: 3px solid black;
+    padding: 6px;
+    border-radius: 15px;
+    width: 90%;
+    margin: 20px;
+}
+
+.barra{
+    padding: 40px;
+    background-color: #f00;
+    border-radius: 10px;
+    width: 5%;
+    animation-name: llenar;
+    animation-timing-function: linear;
+    animation-timeline: scroll();
+}
+
+@keyframes llenar {
+    0%{
+        width: 5%;
+    }
+    100%{
+        width: 100%;
+    }
+}
