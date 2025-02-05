@@ -1,0 +1,50 @@
+/*
+Color Ppal: #4488ee
+Color Secundario: #e2eaff
+Color Alt: #18233f
+*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #18233f;
+}
+
+header {
+  width: 100%;
+  background-color: black;
+  position: sticky;
+  height: 60px;
+  top: 0;
+}
+
+.header__nav .header__nav-list {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+  margin: 0;
+  align-items: center;
+  padding: 0;
+}
+
+.header,
+.header__nav,
+.header__nav-list {
+  height: 100%;
+}
+
+.header__nav .header__nav-list .header__nav-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+.header__nav .header__nav-list .header__nav-item a:hover {
+  color: red;
+  cursor: pointer;
+}
