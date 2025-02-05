@@ -1,0 +1,29 @@
+/*
+Color Ppal: #4488ee
+Color Secundario: #e2eaff
+Color Alt: #18233f
+*/
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: sans-serif;
+  color: #18233f;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+section{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 100%; 
+  gap: 20px
+}
+
+.card img{
+  width: 100%;
+  max-width: 100%;
+}
