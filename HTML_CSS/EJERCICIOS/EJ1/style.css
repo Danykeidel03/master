@@ -12,8 +12,55 @@ body{
   font-family: sans-serif;
   background-color: #e2eaff;
   color: #18233f;
+  display: flex;
+  justify-content: center;
 }
 
 body, div, header, ul, li, a {
   padding: 0;
+}
+
+section{
+  display: flex;
+  max-width: 80%;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.card{
+  background-color: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.card .contentCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .contentCard h2{
+  margin: 0;
+  font-size: 18px;
+}
+
+.card .contentCard p{
+  text-align: center;
+  font-size: 14px;
+}
+
+.card .imgCard img{
+  max-width: 100px;
+  height: auto;
+  border-radius: 100%;
 }
