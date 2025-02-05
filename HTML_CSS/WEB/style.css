@@ -321,4 +321,67 @@ h1{
   }
 }
 
+.formularioPortafonlio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 600px;
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.portfolioForm{
+  background-color: #18233f;
+  color: #e2eaff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  padding: 30px;
+  align-items: center;
+}
+
+.formularioPortafonlio div{
+  width: 100%;
+  gap: 20px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formularioPortafonlio div label{
+  color: #18233f;
+  width: 40%;
+}
+
+.formularioPortafonlio div input,
+.formularioPortafonlio div textarea{
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid black;
+  width: 80%;
+}
+
+.formularioPortafonlio div:last-child{
+  display: flex;
+  justify-content: center;
+}
+
+.formularioPortafonlio div:last-child button{
+  background-color: #18233f;
+  color: #e2eaff;
+  border: none;
+  padding: 10px 30px 10px 30px;
+  border-radius: 16px;
+}
+
+.formularioPortafonlio div:last-child button:hover{
+  background-color: #e2eaff;
+  color: #18233f;
+}
+
 /* ---- PORTFOLIO END ----*/
