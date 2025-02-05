@@ -1,33 +1,31 @@
 /*
-
 Color Ppal: #4488ee
-
 Color Secundario: #e2eaff
-
 Color Alt: #18233f
-
 */
-
-* {
+*{
   box-sizing: border-box;
 }
 
-body {
+body{
   margin: 0;
   font-family: sans-serif;
   background-color: #e2eaff;
   color: #18233f;
 }
-body,
-div,
-header,
-ul,
-li,
-a {
+
+body, div, header, ul, li, a {
   padding: 0;
 }
+
 /* ---- HEADER SECTION ----*/
-.header {
+
+header{
+  position: fixed;
+  width: 100%;
+}
+
+.header{
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -35,18 +33,23 @@ a {
   position: relative;
   text-align: center;
   font-size: 1.3rem;
-  z-index: 2;
+  top: 0;
+  z-index: 10;
+  width: 100%;
 }
-.header__checkbox {
+
+.header__checkbox{
   display: none;
 }
-.header__open-nav-button {
+
+.header__open-nav-button{
   color: #4488ee;
   font-size: 2rem;
   font-weight: 600;
   position: absolute;
   right: 30px;
 }
+
 .header__nav {
   display: none;
   background-color: #fff;
@@ -56,73 +59,91 @@ a {
   top: 0;
   z-index: -1;
 }
+
 .header__checkbox:checked ~ .header__nav {
   display: block;
 }
+
+
 .header__nav-list {
   display: flex;
   flex-direction: column;
-  height: 60dvh;
+  height: 100dvh;
   justify-content: space-evenly;
 }
-.header__nav-item {
+
+.header__nav-item{
   list-style-type: none;
 }
-.header__nav-item a {
+
+.header__nav-item a{
   color: #4488ee;
   text-decoration: none;
   font-size: 1.4rem;
 }
-.header__logo-container {
+
+.header__logo-container{
   font-size: 0;
   line-height: 0;
 }
-.header__logo {
+
+.header__logo{
   max-width: 100%;
   width: 128px;
   padding: 10px;
 }
 
-.logo--desktop {
-    display: none;
-  }
+.logo--mobile{
+  display: block;
+}
+
+.logo--desktop{
+  display: none;
+}
 
 /* ---- HEADER QUERIES ----*/
+
 @media screen and (min-width: 600px) {
-  .logo--mobile {
-    display: none;
+  header{
+      position: static;
   }
 
-  .logo--desktop {
-    display: block;
+  .header__nav{
+      display: block;
+      position: static;
+      width: auto;
+      height: auto;
+      z-index: 0;
   }
 
-  .header__nav {
-    display: block;
-    position: static;
-    width: auto;
-    height: auto;
-    z-index: 0;
-  }
   .header__nav-list {
-    flex-direction: row;
-    height: auto;
-    width: auto;
-    gap: 20px;
-    padding-right: 20px;
+      flex-direction: row;
+      height: auto;
+      width: auto;
+      gap: 20px;
+      padding-right: 20px;
   }
-  .header__open-nav-button {
-    display: none;
+
+  .header__open-nav-button{
+      display: none;
   }
-  .header__nav-item a {
-    font-size: 1.2rem;
+
+  .header__nav-item a{
+      font-size: 1.2rem;
+  }
+
+  .logo--mobile{
+      display: none;
+  }
+  
+  .logo--desktop{
+      display: block;
   }
 }
 
 /* ---- HEADER END ----*/
 
-
-/* ---- PROFILE SECTION START ----*/
+/* ---- PROFILE SECTION ----*/
 
 .profile-wrapper{
   display: flex;
@@ -131,14 +152,22 @@ a {
   background-color: #fff;
 }
 
-.profile_description h1{
+.profile__img-container{
+
+}
+
+.profile__img{
+  max-width: 100%;
+  width: 500px;
+}
+
+h1{
   color: #4488ee;
   text-align: center;
 }
 
-.profile_description p{
+.profile__description p{
   text-align: center;
-  padding: 10px;
 }
 
 .profile__skills-container h2{
@@ -146,12 +175,22 @@ a {
   text-align: center;
 }
 
+.profile__skill{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.profile__skill span{
+  margin: auto;
+}
+
 .load-bar{
   border: 1px solid #4488ee;
   border-radius: 6px;
-  color: #fff;
+  color: #e2eaff;
   padding: 2px;
-  font-size: 14px;
+  font-size: 0.8rem;
   width: 80%;
   margin: 4px;
 }
@@ -160,80 +199,126 @@ a {
   background-color: #18233f;
   border-radius: 4px;
   padding: 4px 6px;
-  width: 100%;
 }
 
-.profile__skill{
-  display: flex;
-  align-items: center;
-}
-
-.profile__skill span{
-  margin: auto;
-}
-
-.profile__img{
-  max-width: 100%;
-  width: 500px;
-}
-
-.bar--80 {
+.bar--80{
   width: 80%;
+}
+
+.bar--70{
+  width: 70%;
 }
 
 .bar--60{
   width: 60%;
 }
 
-.bar--40{
-  width: 40%;
-}
-/* ---- PROFILE SECTION END ----*/
+/* ---- PROFILE QUERIES ----*/
 
-/* ---- PROFILE SECTION MOBILE START ----*/
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width:600px) {
   .profile-wrapper{
-    flex-direction: row;
-    padding: 20px;
-    background-color: transparent;
-    min-height: 90dvh;
-    margin: auto;
-  }
-
-  .profile__data-container{
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    border-radius: 0 20px 20px 0;
-  }
-
-  .profile__data{
-    max-width: 50%;
-  }
-
-  .profile__img{
-    min-height: 100%;
-    border-radius: 20px 0 0 20px;
-    min-width: 100%
+      flex-direction: row;
+      padding: 20px;
+      background-color: transparent;
+      min-height: 90dvh;
+      margin: auto;
   }
 
   h1{
-    font-size: 3rem;
-    margin: 0;
-  }
-
-  .profile__data{
-    max-width: 600px;
+      font-size: 3rem;
+      margin: 0;
   }
 
   .profile__description p{
-    padding: 0 20px;
+      padding: 0px 20px;
+  }
+
+  .profile__data-container{
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      border-radius: 0 20px 20px 0;
+  }
+
+  .profile__data{
+      max-width: 600px;
+  }
+
+  .profile__img{
+      min-height: 100%;
+      min-width: 100%;
+      border-radius: 20px 0 0 25px;
   }
 
   .profile__skill span{
-    margin: initial;
+      margin: initial;
   }
 }
 
-/* ---- PROFILE SECTION MOBILE END ----*/
+/* ---- PROFILE END ----*/
+
+/* ---- PORTFOLIO STATIC ----*/
+
+.portfolio{
+  background-color: #18233f;
+  color: #e2eaff;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.portfolio__title{
+  font-size: 2.5rem;
+}
+
+.portfolio__project-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  padding: 12px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.portfolio__project{
+  background-image: linear-gradient(#0007, #0008), url('https://picsum.photos/801');
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  min-height: 25dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.portfolio__project-name{
+  font-size: 2rem;
+  text-shadow: 0px 0px 25px #000;
+  color: #fff;
+}
+
+.portfolio__project:hover{
+  opacity: 0.7;
+}
+
+/* ---- PORTFOLIO QUERIES ----*/
+
+@media screen and (min-width: 600px) {
+  .portfolio__project-container{
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  }
+  .portfolio__project:first-child{
+      grid-column: span 2;
+      grid-row: span 2;
+  }
+
+  .portfolio__project:last-child{
+      grid-column: span 4;
+  }
+}
+
+/* ---- PORTFOLIO END ----*/

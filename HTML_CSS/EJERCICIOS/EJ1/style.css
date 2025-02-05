@@ -1,0 +1,19 @@
+/*
+Color Ppal: #4488ee
+Color Secundario: #e2eaff
+Color Alt: #18233f
+*/
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #e2eaff;
+  color: #18233f;
+}
+
+body, div, header, ul, li, a {
+  padding: 0;
+}
