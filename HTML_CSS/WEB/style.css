@@ -321,4 +321,17 @@ h1{
   }
 }
 
+
+.portfolio__project:last-child{
+  grid-column: span 4;
+} .portfolio__project:last-child{
+  grid-column: span 4;
+} .portfolio__project:last-child{
+  grid-column: span 4;
+} .portfolio__project:last-child{
+  grid-column: span 4;
+} .portfolio__project:last-child{
+  grid-column: span 4;
+}
+
 /* ---- PORTFOLIO END ----*/
