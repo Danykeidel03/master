@@ -21,6 +21,20 @@ document.querySelector('.buttons-container').addEventListener('click', (e) => {
         console.log('Número 2:', numero2);
         console.log('Operación:', operacion);
 
+        switch (operacion) {
+            case "sumar":
+              console.log(`La suma de estos dos valores es ${numero1 + numero2}`);
+              break;
+            case "restar":
+              console.log(`La resta de estos dos valores es ${numero1 - numero2}`);
+              break;
+            case "multiplicar":
+              console.log(`La multiplicacion de estos dos valores es ${numero1 * numero2}`);
+              break;
+            case "dividir":
+              console.log(`La division de estos dos valores es ${numero1 / numero2}`);
+              break;
+        }
     }
 });
 
