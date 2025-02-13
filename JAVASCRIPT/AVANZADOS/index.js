@@ -148,3 +148,5 @@ function gestionTareas(array, accion, obj) {
 //gestionTareas(tareas, 'completar', "Estudiar Css")
 //gestionTareas(tareas, 'diferenciar')
 //gestionTareas(tareas, 'pendientes')
+
+//toUpperCase()
