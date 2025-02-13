@@ -108,13 +108,9 @@ function palabraExtensa(array){
   array.forEach(element => {
     arrayLength.push(element.length)
   });
-  arrayLength.sort(function(a, b){
-    return b - a;
-  })
-
+  arrayLength.sort(function(a, b){return b - a;})
+  
   console.log(arrayLength)
-
-
 }
 
 palabraExtensa(names2)
