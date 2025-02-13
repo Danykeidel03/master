@@ -150,3 +150,5 @@ function gestionTareas(array, accion, obj) {
 //gestionTareas(tareas, 'pendientes')
 
 //toUpperCase()
+// ej 7 sin usar el set 
+// no hacer el reduce del 11 de momento
