@@ -147,3 +147,36 @@ console.log(arraySinA.join(', '))
 //ejercicio 14
 
 
+const numbers3 = [45, 67, 12, 89, 34, 22];
+
+console.log(numbers3.sort().reverse())
+
+numbers3.sort().pop()
+
+console.log(numbers3)
+
+let numeroLargo = numbers3.length
+
+let ultimoNumero = numbers3.sort()[numeroLargo - 1]
+
+console.log(ultimoNumero)
+
+
+//ejercicio 15
+
+const phrases = ['I love JavaScript', 'Coding is great', 'Java is cool', 'I prefer Python'];
+
+function contieneJava(array){
+  array.forEach(element => {
+    if(element.includes('Java')){
+      console.log('Tiene java')
+    }else{
+      console.log('No tiene Java');
+    }
+  });
+  arrayJava = array.map(element => element.includes('Java'))
+
+  console.log(arrayJava)
+}
+
+contieneJava(phrases);
