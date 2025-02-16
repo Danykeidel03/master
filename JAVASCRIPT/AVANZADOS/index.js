@@ -149,10 +149,6 @@ function gestionTareas(array, accion, obj) {
 //gestionTareas(tareas, 'diferenciar')
 //gestionTareas(tareas, 'pendientes')
 
-//toUpperCase()
-// ej 7 sin usar el set 
-// no hacer el reduce del 11 de momento
-
 //ejercicio 5
 
 const nombres = ['Ana', 'Juan', 'Pedro', 'Andrés'];
@@ -357,3 +353,36 @@ gestionarCola('añadir', 'Pedro', cola)
 gestionarCola('añadirShift', 'María', cola)
 gestionarCola('mostrarSegundo', 0, cola)
 gestionarCola('cantidad', 0, cola)
+
+
+// ejercicio 15
+
+const inventario1 = [
+  { nombre: 'Laptop', cantidad: 10, precio: 800 },
+  { nombre: 'Teclado', cantidad: 20, precio: 30 }
+];
+
+const inventario2 = [
+  { nombre: 'Ratón', cantidad: 15, precio: 10 },
+  { nombre: 'Monitor', cantidad: 5, precio: 200 }
+];
+
+
+let obj = [{ nombre: 'Pantalla', cantidad: 2, precio: 1000 }]
+
+function añadirSpread(array, obj){
+  let combinado = [...array, ...obj]
+  return combinado;
+}
+
+console.log(añadirSpread(inventario1, obj))
+
+let inventarioFinal = {}
+
+function editValor(producto , precio, array){
+  array.forEach(element => {
+    if(element.nombre === producto){
+      inventarioFinal = {}
+    }
+  });
+}
