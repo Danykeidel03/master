@@ -1,0 +1,1 @@
+const { agregarPrioridades, filtrarPrioridades, ordenarPorPrioridad, eliminarUltimo, pasarAString } = require('./inventario');
