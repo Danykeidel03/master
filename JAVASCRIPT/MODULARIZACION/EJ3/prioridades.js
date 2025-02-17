@@ -22,3 +22,5 @@ function eliminarUltimo() {
 function pasarAString() {
     return prioridades.toString(' ,')
 }
+
+module.exports = {agregarPrioridades, filtrarPrioridades, ordenarPorPrioridad, eliminarUltimo, pasarAString}

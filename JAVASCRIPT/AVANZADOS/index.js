@@ -305,9 +305,10 @@ function añadirConSpread(obj) {
 añadirConSpread({ nombre: 'Pedro', edad: 19 });
 
 
-function actualizarInfo(user, info) {
-  const actualizarUser = { ...alumnos, ...info }
-  console.log(actualizarUser);
+function actualizarInfo(nombre, edad) {
+  const alumnoNuevo = [{nombre: nombre, edad: edad}]
+  const listaActualizada = [{...alumnos, ...alumnoNuevo}]
+  return listaActualizada;
 }
 
 
@@ -364,7 +365,9 @@ const inventario1 = [
 
 const inventario2 = [
   { nombre: 'Ratón', cantidad: 15, precio: 10 },
-  { nombre: 'Monitor', cantidad: 5, precio: 200 }
+  { nombre: 'Monitor', cantidad: 5, precio: 200 },
+  { nombre: 'Teclado', cantidad: 20, precio: 30 }
+
 ];
 
 
@@ -380,9 +383,19 @@ console.log(añadirSpread(inventario1, obj))
 let inventarioFinal = {}
 
 function editValor(producto , precio, array){
-  array.forEach(element => {
-    if(element.nombre === producto){
-      inventarioFinal = {}
-    }
-  });
+  let newValue = [{nombre: producto, precio: precio}]
+  const listaActualizada = [{...array, ...newValue}]
+  return listaActualizada;
 }
+
+function deleteCero(array){
+  return array.filter(element => element.cantidad = 0);
+}
+
+function unirSinDuplicados(array1, array2){
+  let listaNueva = [...array1, ...array2]
+  const listaFinal = [...new Set(listaNueva)]
+  return listaFinal
+}
+
+console.log(unirSinDuplicados(inventario1, inventario2))

@@ -23,3 +23,5 @@ function ordenarLibros(){
 function filtrarGenero(){
     return librosDigitales.filter((element) => element.genero === genero);
 }
+
+module.exports = {agregarLibro,buscarPorAutor,ordenarPorTitulo,buscarGenero,ordenarLibros,filtrarGenero}
