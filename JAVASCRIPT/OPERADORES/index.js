@@ -267,11 +267,11 @@ let arrObjNivel = [
     }
 ]
 
-function calculo14(obj){
+function calculo14(obj) {
     obj.forEach(element => {
-        if(element.nivel === 'intermedio'){
+        if (element.nivel === 'intermedio') {
             element.nivel = 'avanzado'
-        }else if(element.nivel === 'basico'){
+        } else if (element.nivel === 'basico') {
             element.nivel = 'intermedio'
         }
     });
@@ -303,19 +303,42 @@ let arrPersonas2 = [
 ]
 
 function calculo15(personas) {
-   personas.forEach(element => {
-        if(element.edad < 12){
-            element['categoria'] = 'Infantil'        
-        }else if(element.edad >= 12 && element.edad <= 17){
-            element['categoria'] = 'Adolescente'        
-        }else{
-            element['categoria'] = 'Adulto'        
+    personas.forEach(element => {
+        if (element.edad < 12) {
+            element['categoria'] = 'Infantil'
+        } else if (element.edad >= 12 && element.edad <= 17) {
+            element['categoria'] = 'Adolescente'
+        } else {
+            element['categoria'] = 'Adulto'
         }
-   });
-   return personas
+    });
+    return personas
 }
 
 console.log(calculo15(arrPersonas2))
 
 
 // ejercicio 16
+
+let arrayNumeros = [-2, -10, 0, 3, 4, 5, 11, 34]
+
+function calculo16(array) {
+    return array.map(numero => numero < 0 ? 0 : numero)
+}
+
+console.log(calculo16(arrayNumeros))
+
+
+// ejercicio 17
+
+const arrayNombres2 = ['daniel', 'juan', 'pedro']
+
+function calculo17(array) {
+    let newArray = []
+    array.forEach(element => {
+        newArray.push[{nombre: element.toUpperCase(), longitud: element.length}]
+    });
+    return newArray
+}
+
+console.log(calculo17(arrayNombres2))
