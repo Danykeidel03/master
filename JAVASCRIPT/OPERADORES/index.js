@@ -97,7 +97,7 @@ arrObj = [
     }
 ]
 
-function calculo4(){
+function calculo4() {
     return arrObj.filter(alumno => alumno.edad > 18 && alumno.activo === true)
 }
 
@@ -108,10 +108,10 @@ console.log(calculo4())
 
 let contraseña = 'Prueba.123'
 
-function validarPass(pass){
-    if(pass.length > 7 && !pass.includes(' ') && (/[A-Z]/.test(pass) && /\d/.test(pass))){
+function validarPass(pass) {
+    if (pass.length > 7 && !pass.includes(' ') && (/[A-Z]/.test(pass) && /\d/.test(pass))) {
         return true
-    }else{
+    } else {
         return false
     }
 }
@@ -124,12 +124,12 @@ console.log(validarPass(contraseña))
 
 const numero = 5;
 
-function calculo6(numero){
-    if(numero > 0){
+function calculo6(numero) {
+    if (numero > 0) {
         return 'Positivo'
-    }else if (numero < 0){
+    } else if (numero < 0) {
         return 'Negativo'
-    }else{
+    } else {
         return 'Cero'
     }
 }
@@ -144,11 +144,11 @@ let contador = {
     valor: 6
 }
 
-function calculo7(objeto){
-    if(objeto.valor % 2 === 0){
+function calculo7(objeto) {
+    if (objeto.valor % 2 === 0) {
         objeto.valor++
         return objeto.valor
-    }else{
+    } else {
         objeto.valor--
         return objeto.valor
     }
@@ -161,10 +161,10 @@ console.log(calculo7(contador))
 
 const numero2 = 6
 
-function calculo8(numero){
-    if(numero % 2 === 0){
+function calculo8(numero) {
+    if (numero % 2 === 0) {
         return 1
-    }else{
+    } else {
         return 0
     }
 }
@@ -173,7 +173,7 @@ console.log(calculo8(numero2))
 
 // ejercicio 9
 
-function calculo9(numero){
+function calculo9(numero) {
     let n1 = numero << 1
     let n2 = numero >> 1
     return [n1, n2]
@@ -181,5 +181,141 @@ function calculo9(numero){
 
 console.log(calculo9(6))
 
-// ejercicio 10
+// ejercicio 10 no lo entiendo
 
+
+// ejercicio 11
+
+let objetos = [
+    { nombre: 'placa', stock: 10 },
+    { nombre: 'bola', stock: 5 },
+    { nombre: 'pelota', stock: 0 }
+]
+
+function calculo11(objetos) {
+    return objetos.map(obj => obj.stock > 0 ? 'Hay stock' : 'No hay stock')
+}
+
+console.log(calculo11(objetos))
+
+// ejercicio 12
+
+
+let objetos2 = [
+    { nombre: 'placa', stock: 10, precio: 10 },
+    { nombre: 'bola', stock: 5, precio: 5 },
+    { nombre: 'pelota', stock: 10, precio: 20 }
+]
+
+function calculo12(objetos) {
+    let sumaTotal = 0
+    objetos.forEach(element => {
+        sumaTotal += element.stock * element.precio
+    });
+    return sumaTotal;
+}
+
+console.log(calculo12(objetos2))
+
+
+// ejercicio 13
+
+let arrPersonas = [
+    {
+        nombre: 'Daniel',
+        edad: 20
+    },
+    {
+        nombre: 'Pedro',
+        edad: 27
+    },
+    {
+        nombre: 'Jose',
+        edad: 12
+    },
+    {
+        nombre: 'Tino',
+        edad: 11
+    }
+]
+
+function calculo13(personas) {
+    return personas.filter(persona => persona.edad > 18)
+}
+
+console.log(calculo13(arrPersonas))
+
+
+// ejercicio 14
+
+let arrObjNivel = [
+    {
+        nombre: 'Daniel',
+        nivel: 'basico'
+    },
+    {
+        nombre: 'Pedro',
+        nivel: 'intermedio'
+    },
+    {
+        nombre: 'Jose',
+        nivel: 'basico'
+    },
+    {
+        nombre: 'Tino',
+        nivel: 'intermedio'
+    }
+]
+
+function calculo14(obj){
+    obj.forEach(element => {
+        if(element.nivel === 'intermedio'){
+            element.nivel = 'avanzado'
+        }else if(element.nivel === 'basico'){
+            element.nivel = 'intermedio'
+        }
+    });
+    return obj
+}
+
+console.log(calculo14(arrObjNivel))
+
+
+// ejercicio 15
+
+let arrPersonas2 = [
+    {
+        nombre: 'Daniel',
+        edad: 20
+    },
+    {
+        nombre: 'Pedro',
+        edad: 27
+    },
+    {
+        nombre: 'Jose',
+        edad: 12
+    },
+    {
+        nombre: 'Tino',
+        edad: 11
+    }
+]
+
+function calculo15(personas) {
+   personas.forEach(element => {
+        if(element.edad < 12){
+            element['categoria'] = 'Infantil'        
+        }else if(element.edad >= 12 && element.edad <= 17){
+            element['categoria'] = 'Adolescente'        
+        }else{
+            element['categoria'] = 'Adulto'        
+        }
+   });
+   return personas
+}
+
+console.log(calculo15(arrPersonas2))
+
+
+// ejercicio 16
