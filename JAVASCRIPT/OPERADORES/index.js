@@ -28,8 +28,8 @@ obj = {
 
 function calculo2() {
   obj.b -= obj.a;
-  obj.a = obj.a * 3;
-  obj.b = obj.b / 2;
+  obj.a *= 3;
+  obj.b /= 2;
   return obj;
 }
 
@@ -391,19 +391,18 @@ function calcularDNI(numero) {
     ];
     letra = letras[resto];
 
-    return numero+letra
+    return numero + letra;
   }
 }
 
-console.log(calcularDNI(dni))
-
+console.log(calcularDNI(dni));
 
 // ejercicio 20
 
 const number = [2, 3, 2, 5, 7, 2, 4, 3, 8];
 
-function calculo20(cadenaNumeros){
-   return cadenaNumeros.filter((element, index) => element === index)
+function calculo20(cadenaNumeros) {
+  return cadenaNumeros.filter((element, index) => element === index);
 }
 
-console.log(calculo20(number))
+console.log(calculo20(number));
