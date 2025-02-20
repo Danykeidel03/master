@@ -361,9 +361,7 @@ const dni = 71463456;
 
 function calcularDNI(numero) {
   if (numero >= 0 && numero <= 99999999) {
-    //CALCULAMOS EL RESTO DE DIVIDIR EL NÚMERO ENTRE
     resto = numero % 23;
-    //SEGÚN SEA EL RESTO ASIGNAMOS UN VALOR A LA VARIABLE LETRA
     letras = [
       "T",
       "R",
