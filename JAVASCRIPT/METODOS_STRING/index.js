@@ -210,19 +210,15 @@ console.log(crearUsuarios(nombres5));
 let txt3 = "hola como estas";
 
 function replaceWord(txt, palabra) {
-  while (txt.includes(palabra)) {
-    txt.replace(palabra, 'cambio')
-  }
-  return txt
+  return txt.replaceAll(palabra, 'cambio')
 }
 
-
-//console.log(replaceWord(txt3, 'como'))
+console.log(replaceWord(txt3, 'como'))
 
 //ejercicio 19
 
 function verificarCadena(txt,palabra){
-    return (txt.split(' ')[0] === palabra ? true : false)
+    return (txt.startsWith(palabra) ? true : false)
 }
 
 console.log(verificarCadena(txt, 'Hola'))
