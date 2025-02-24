@@ -16,7 +16,7 @@ let objPersona = persona('Daniel')
 objPersona.cambiarNombre('Pablo')
 //console.log(objPersona.obtenerNombre())
 
-// ejercicio 1
+// ejercicio 1 y ejercicio 6
 
 function contador() {
 
