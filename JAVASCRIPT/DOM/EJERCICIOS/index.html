@@ -1,11 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario Básico</title>
-</head>
-<body>
+  </head>
+  <body>
     <script src="index.js"></script>
-</body>
+    <div id="miParrafo">Prueba</div>
+    <div class="contenedor">Hola</div>
+    <div class="active"></div>
+    <div class="active"></div>
+    <div class="active"></div>
+    <div id="miDiv" class="active"></div>
+    <a id="miEnlace" href="">hola</a>
+    <div class="modificar"></div>
+    <div class="modificar"></div>
+    <div class="color">Hola</div>
+    <a id="miEnlaceDos" href="">hola</a>
+    <p>hola</p>
+    <p>adios</p>
+    <div class="color" id="miDiv">Hola</div>
+    <div id="miElemento"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="primero"></div>
+    <div class="primero"></div>
+    <li class="lista">
+        <ul><a href="hola"></a></ul>
+        <ul><a href="hola"></a></ul>
+        <ul><a href="hola"></a></ul>
+    </li>
+  </body>
 </html>
+<script>
+  // ejercicio 1
+  document.getElementById("miParrafo").textContent =
+    "Este es un párrafo modificado mediante JavaScript";
+
+  //ejercicio 2
+  document.querySelector(".contenedor").style.backgroundColor = "#f7f7f7";
+
+  //ejercicio 3
+  console.log(document.getElementsByClassName("active").length);
+
+  //ejercicio 4
+  document
+    .getElementById("miEnlace")
+    .setAttribute("href", "https://www.nuevaurl.com");
+
+  //ejercicio 5
+  let divs = document.querySelectorAll(".modificar");
+  divs.forEach((element) => {
+    element.textContent = "Texto modificado";
+  });
+
+  //ejercicio 6
+  document.querySelector(".color").addEventListener("mousemove", function () {
+    document.querySelector(".color").style.backgroundColor = "red";
+  });
+
+  //ejercicio 7
+  document.getElementById("miEnlaceDos").textContent = "cambio";
+  document
+    .getElementById("miEnlaceDos")
+    .setAttribute("href", "https://www.nuevaurl.com");
+
+  //ejercicio 8
+  console.log(document.getElementsByTagName("p"));
+
+  //ejercicio 9
+  console.log(document.getElementById("miDiv").className);
+
+  //ejercicio 10
+  if (document.getElementById("miElemento")) {
+    console.log("existe");
+  } else {
+    console.log("no existe");
+  }
+
+  //ejercicio 11
+  console.log(document.getElementsByClassName("item"));
+  let divs2 = document.querySelectorAll(".item");
+  divs2.forEach(element => {
+    console.log(element.textContent)
+  });
+
+  //ejercicio 12
+  document.querySelector('.primero').textContent = ('primero modificado')
+
+  //ejercicio 13
+  if(document.getElementById('miDiv').classList.contains('active')){
+    console.log('tiene la clase')
+  }
+
+  //ejercicio 14
+  document.querySelectorAll('.lista ul a').forEach(item => {
+    console.log(item.getAttribute('href'))
+  })
+
+  //ejercicio 15
+  document.getElementById('miDiv').style.display = ('none')
+  document.getElementById('miDiv').style.display = ('block')
+
+</script>
