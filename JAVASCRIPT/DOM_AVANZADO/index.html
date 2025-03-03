@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Básico</title>
+</head>
+<body>
+    <div>
+        <h2>Hermano anterior</h2>
+        <h1 class="titulo">Titulo</h1>
+        <h2>Titulo secunadrio</h2>
+    </div>
+
+    <div class="contenedor">
+        <section id="section">
+            <article>primero</article>
+            <article id="referencia">segundo</article>
+            <article>tercero</article>
+        </section>
+    </div>
+</body>
+<script>
+
+    const titulo = document.querySelector('.titulo')
+
+    // propiedades HTMLElement
+    const parent = titulo.parentNode;
+    const nextBro = titulo.nextElementSibling;
+    const prevBro = titulo.previousElementSibling;
+
+    const seccion = document.querySelector('#section')
+
+    const firstChild = seccion.firstElementChild;
+    const lastChild = seccion.lastElementChild;ç
+
+    //INNERS
+
+    const innerTxt = titulo.innerText;
+    const innerHTML = titulo.innerHTML;
+
+    //CLASSNAME
+    let articulos = document.querySelectorAll('article')
+    articulos[0].className
+    articulos[0].classList.add = 'prueba'
+
+    // CREACION ELIMINACION EN INSERCCION
+
+    const txt = document.createTextNode('Hola')
+    const articulo = document.createElement('article')
+    articulo.append(txt);
+    articulo.classList.add = 'articulo'
+
+    //appendchild añade un hijo al final
+    seccion.appendChild(articulo)
+    seccion.prepend(articulo)
+
+    //INSERTAR DONDE QUIERAS
+    const elementoReferencia = document.querySelector('#referencia')
+    seccion.insertBefore(articulo, elementoReferencia)
+
+    elementoReferencia.insertAdjacentHTML('beforeBegin', '<article class="art">hoola</article>')
+
+    /*
+        beforeBegin: Antes del elemento.
+        afterBegin: Dentro del elemento, al principio.
+        beforeEnd: Dentro del elemento, al final.
+        afterEnd: Después del elemento.
+    */
+
+   //BORRAR ELEMENTOS
+    elementoReferencia.parentNode.removeChild(elementoReferencia)
+
+    //REMPLAZAR ELEMENTOS
+    seccion.replaceChild(articulo,elementoReferencia)
+</script>
+</html>
