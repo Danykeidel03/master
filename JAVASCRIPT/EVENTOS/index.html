@@ -1,14 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario Básico</title>
-  </head>
-  <body>
-   
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Básico</title>
+</head>
+
+<body>
+  <button class="btn1">btn1</button>
+  <img src="" alt="prueba" class="img1">
+  <div class="div1" style="width: 300px; height: 300px; background-color: red;">Div 1</div>
+  <button class="btn2">btn2</button>
+  <input type="text" class="input1">
+  <select class="opt1">
+    <option name="1" id="1">1</option>
+    <option name="2" id="2">2</option>
+  </select>
+  <input type="text" id="campoTexto" placeholder="Escribe algo...">
+  <div class="buttons">
+    <button class="btn4">btn2</button>
+    <button class="btn5">btn2</button>
+  </div>
+</body>
+
 </html>
 <script>
+  // ejecicio 1
+  document.querySelector('.btn1').addEventListener('click', () => {
+    alert('Boton pulsado')
+  })
+
+  //ejercicio 2
+  document.querySelector('.img1').addEventListener('dblclick', () => {
+    document.querySelector('.img1').setAttribute('src', 'hola')
+  })
+
+  //ejercicio 3 y ejercicio 11
+
+  document.querySelector('.div1').addEventListener('mouseenter', () => {
+    document.querySelector('.div1').style.backgroundColor = "green";
+  })
+
+  document.querySelector('.div1').addEventListener('mouseleave', () => {
+    document.querySelector('.div1').style.backgroundColor = "red";
+  })
+
+  //ejercicio 4
+
+  document.querySelector('.btn2').addEventListener('mouseup', () => {
+    document.querySelector('.btn2').style.backgroundColor = "green";
+  })
+
+  document.querySelector('.btn2').addEventListener('mousedown', () => {
+    document.querySelector('.btn2').style.backgroundColor = "red";
+  })
+
+  //ejercicio 5
+  document.querySelector('.input1').addEventListener('keyup', () => {
+    console.log(document.querySelector('.input1').value.length);
+  })
+
+  //ejercicio 6
+  document.querySelector('.opt1').addEventListener('change', () => {
+    console.log(document.querySelector('.opt1').value);
+  })
+
+  //ejercicio 7
+  var input = document.getElementById("campoTexto");
+
+  input.addEventListener("focus", function () {
+    this.style.borderColor = "green";
+  });
+
+  input.addEventListener("blur", function () {
+    this.style.borderColor = "red";
+  });
+
+  // ejercicio 8
+  window.addEventListener("resize", function () {
+    console.log("Nueva dimensión: " + window.innerWidth + " x " + window.innerHeight);
+  });
+
+  //ejercicio 9
+
+
+  //ejercicio 10
+  document.querySelectorAll('.buttons button').forEach(item => {
+    console.log(item);
+  })
+
+  //ejercicio 11 hecho en el 3
+
+  //ejercicio 12
+
   
 </script>
