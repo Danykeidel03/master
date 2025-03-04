@@ -61,7 +61,8 @@ button:hover {
 }
 
 .elementoRef,
-.elementoRemplazar{
+.elementoRemplazar,
+.elementoRemplazarFin{
     background-color: lightcyan !important;
     text-align: center;
     margin: 6px 0 6px 0;

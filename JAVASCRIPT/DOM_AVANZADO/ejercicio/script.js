@@ -1,13 +1,18 @@
+function addDiv(txt){
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('elementoRemplazar')
+    newDiv.textContent = txt
+    return newDiv
+}
+
 // creacion de element
 
 let createDiv = document.querySelector('.nuevosDiv')
 
 document.querySelector('.createElement').addEventListener('click', () => {
     let numeroCreateDiv = document.querySelectorAll('.nuevosDiv div').length
-    const newDiv = document.createElement('div');
-    newDiv.classList.add('elementCreate')
-    newDiv.textContent = (`Elemento numero ${numeroCreateDiv}`)
-    createDiv.appendChild(newDiv)
+    const divNew = addDiv(`Elemento numero ${numeroCreateDiv}`)
+    createDiv.appendChild(divNew)
 })
 
 
@@ -15,32 +20,24 @@ document.querySelector('.createElement').addEventListener('click', () => {
 let añadirDiv = document.querySelector('.insercionContainer')
 
 document.querySelector('#btnInsertarAntes').addEventListener('click', () => {
-    const newDiv = document.createElement('div');
-    newDiv.classList.add('elementAntes')
-    newDiv.textContent = (`Elemento Antes`)
-    añadirDiv.insertBefore(newDiv, document.querySelector('.elementoRef'))
+    const divNew = addDiv(`Elemento Antes`)
+    añadirDiv.insertBefore(divNew, document.querySelector('.elementoRef'))
 })
 
 document.querySelector('#btnInsertarDespues').addEventListener('click', () => {
-    const newDiv = document.createElement('div');
-    newDiv.classList.add('elementDespues')
-    newDiv.textContent = (`Elemento Despues`)
-    añadirDiv.insertBefore(newDiv, document.querySelector('.elementoUltimo'))
+    const divNew = addDiv(`Elemento Despues`)
+    añadirDiv.insertBefore(divNew, document.querySelector('.elementoUltimo'))
 })
 
 
 document.querySelector('#btnInsertarInicio').addEventListener('click', () => {
-    const newDiv = document.createElement('div');
-    newDiv.classList.add('elementPrincipio')
-    newDiv.textContent = (`Elemento Inicio`)
-    añadirDiv.prepend(newDiv)
+    const divNew = addDiv(`Elemento Inicio`)
+    añadirDiv.prepend(divNew)
 })
 
 document.querySelector('#btnInsertarFinal').addEventListener('click', () => {
-    const newDiv = document.createElement('div');
-    newDiv.classList.add('elementFin')
-    newDiv.textContent = (`Elemento Fin`)
-    añadirDiv.appendChild(newDiv)
+    const divNew = addDiv(`Elemento Fin`)
+    añadirDiv.appendChild(divNew)
 })
 
 // eliminar de element
@@ -59,8 +56,8 @@ let contador = 1
 
 document.querySelector('.remplazarElement').addEventListener('click', () => {
     const newDiv = document.createElement('div');
-    newDiv.classList.add('elementoRemplazar')
+    newDiv.classList.add('elementoRemplazarFin')
     newDiv.textContent = (`Reemplazado por elemento numero ${contador}`)
-    document.querySelector('.elementoRemplazar').replaceWith(newDiv)
+    document.querySelector('.elementoRemplazarFin').replaceWith(newDiv)
     contador++
 })
