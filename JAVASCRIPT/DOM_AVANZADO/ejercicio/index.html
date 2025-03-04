@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación del DOM</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <h1>Manipulación del DOM</h1>
+
+    <!-- Sección para crear elementos -->
+    <section class="seccionCrear contenedor">
+        <h2>Creacion y Eliminacion de elementos</h2>
+        <button class="createElement">Crear</button>
+        <button class="deleteElement">Eliminar</button>
+        <div class="nuevosDiv"></div>
+    </section>
+    <!-- Sección para insertar elementos -->
+    <section class="seccionInsertar contenedor">
+        <h2>Insertar de elementos</h2>
+        <div class="buttons">
+            <button id="btnInsertarAntes">Insertar Antes</button>
+            <button id="btnInsertarDespues">Insertar Después</button>
+            <button id="btnInsertarInicio">Al Inicio</button>
+            <button id="btnInsertarFinal">Al Final</button>
+        </div>
+        <div class="insercionContainer">
+            <div class="elementoPrimero elementInsert">Primero</div>
+            <div class="elementoRef elementInsert">Referencia</div>
+            <div class="elementoUltimo elementInsert">Ultimo</div>
+        </div>
+    </section>
+    <!-- Sección para reemplazar elementos -->
+    <section class="seccionRemplazar contenedor">
+        <h2>Creacion y Eliminacion de elementos</h2>
+        <button class="remplazarElement">Remplazar</button>
+        <div class="elementoRemplazar">Elemento</div>
+    </section>
+</body>
+
+</html>
