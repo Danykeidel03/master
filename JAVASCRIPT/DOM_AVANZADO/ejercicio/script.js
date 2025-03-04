@@ -58,6 +58,9 @@ document.querySelector('.deleteElement').addEventListener('click', () => {
 let contador = 1
 
 document.querySelector('.remplazarElement').addEventListener('click', () => {
-    document.querySelector('.elementoRemplazar').textContent = `Reemplazado por elemento numero ${contador}`
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('elementoRemplazar')
+    newDiv.textContent = (`Reemplazado por elemento numero ${contador}`)
+    document.querySelector('.elementoRemplazar').replaceWith(newDiv)
     contador++
 })
