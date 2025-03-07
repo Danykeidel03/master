@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Básico</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h1>Formulario Local Storage</h1>
+        <div class="formularioUsuarios">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+            <input type="number" name="edad" id="edad" placeholder="Edad" min="18" required>
+            <input type="mail" name="mail" id="mail" placeholder="Mail" required>
+            <button class="enviarDatos">Enviar Datos</button>
+        </div>
+        <table class="datosUser">
+            <thead class="tableHeader">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>Mail</th>
+                </tr>
+            </thead>
+            <tbody class="tableBody">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td><button class="deleteUser">Delete</button></td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+</body>
+<script src="index.js"></script>
+</html>
