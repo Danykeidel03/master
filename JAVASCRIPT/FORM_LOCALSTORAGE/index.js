@@ -51,6 +51,9 @@ function eliminarDatos(){
   alert('Usuario Eliminado')
   localStorage.removeItem('infoUser')
   mostrarOcultar(false)
+  let valorNombre = document.querySelector('#nombre').value = ''
+  let valorEdad = document.querySelector('#edad').value = ''
+  let valorMail = document.querySelector('#mail').value = ''
 }
 
 const buttonDatos = document.querySelector('.enviarDatos');
