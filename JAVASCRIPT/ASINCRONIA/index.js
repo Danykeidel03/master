@@ -36,19 +36,25 @@ fetch("https://pokeapi.co/api/v2/type/3", {
   .finally(() => console.log("Peticion finalizada"));
 
 //async y wait
-//esto funciona de forma que hasta que no se ejecuta la funcion no sigue el codigo (await)
+//esto funciona de forma que si haces una peticion a una api y tarda x tiempo, al ser asincrona espera la respuesta pero el codigo sigue ejcutandose
+//EJEMPLO tarda menos un console.log() que una llamada a la api por lo que como es asincrona sigue ejecutandoy y lo siguiente en este caso es el clg
+//DE TODO LO QUE HAY AQUI LA RESPUESTA MAS RAPIDA ES LA DEL CLG QUE AL SER ASINCRONA NO TIENE PORQUE SER LA PRIMERA
 
-async function peticion(url) {
+// TRY CATCH
+async function peticion(url) { // ESTO ES UNA PROMESA
   const response = await fetch(url);
   const data = await response.json();
   console.log(data);
   return data;
 }
 
-peticion("https://pokeapi.co/api/v2/type/3").then((response) =>
-  console.log(response)
-);
+peticion("https://pokeapi.co/api/v2/type/3") // ESTO ES ASINCRONO
+  .then((response) =>
+    console.log(response)
+  ) // catch
+  
 
+console.log('SIGUE LA EJECUCION');
 // TRY CATCH
 
 try {
