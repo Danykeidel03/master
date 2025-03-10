@@ -56,3 +56,74 @@ main h1 {
 .datosPokemon{
     display: none;
 }
+
+.datosPokemon.active{
+    display: block;
+    padding: 24px 0 24px 0;
+    border-collapse: collapse;
+}
+
+.datosPokemon.active thead{
+    background-color: lightgray;
+    padding: 10px 0 10px 0;
+    border: 1px solid black;
+    border-radius: 16px 16px 0 0;
+}
+
+.datosPokemon.active tbody{
+    border: 1px solid black;
+    border-radius: 0 0 16px 16px;
+}
+
+.datosPokemon.active thead,
+.datosPokemon.active tbody{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.datosPokemon.active thead tr,
+.datosPokemon.active tbody tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.datosPokemon.active thead tr th,
+.datosPokemon.active tbody tr td{
+    width: 20%;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    padding: 8px;
+}
+
+.nombrePokemon,
+.pesoPokemon,
+.alturaPokemon,
+.pokeHabilidades div{
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+
+.errorPokemon{
+    background-color: #ffcdd2;
+    color: red;
+    text-align: center;
+    padding: 8px;
+}
+
+.vaciarTabla{
+    width: 30%;
+    border-radius: 16px;
+    background-color: white;
+    border: 1px solid black;
+    font-family: sans-serif;
+    font-size: 10px;
+    cursor: pointer;
+    padding: 12px;
+    margin-bottom: 15px;
+}
