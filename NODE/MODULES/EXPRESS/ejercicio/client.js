@@ -6,11 +6,18 @@ const persona = {
   mail: "hola@mail.com",
 };
 
-const actualizarEliminar = {
-  nombre: "Daniel"
+const actualizar = {
+  nombre: "Daniel",
+  mail: 'nuevomail@gmail.com'
 }
 
-fetch('http://localhost:3000/api?nombre=Juan')
+fetch('http://localhost:3000/api?nombre=Pedro&edad=19')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+
+fetch('http://localhost:3000/api/Daniel')
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(error => console.error('Error:', error));
@@ -50,7 +57,7 @@ fetch("http://localhost:3000/eliminar", {
   headers: {
     "Content-type": "application/json",
   },
-  body: JSON.stringify(actualizarEliminar)
+  body: JSON.stringify({ nombre: "Daniel" })
 })
   .then(response => {
     console.log(response)
@@ -62,5 +69,5 @@ fetch("http://localhost:3000/eliminar", {
 
 fetch('http://localhost:3000/users')
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => console.log(data.data))
   .catch(error => console.error('Error:', error));
