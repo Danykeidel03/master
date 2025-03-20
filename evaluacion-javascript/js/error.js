@@ -1,8 +1,6 @@
-function returnError(message, elementBefore, container){
-    let divError = document.createElement = 'div';
+export function returnError(message, elementBefore, container){
+    let divError = document.createElement('div');
     divError.classList.add('divError');
-    divError.textContent() = message;
+    divError.textContent = message;
     container.insertBefore(divError, elementBefore);
 }
-
-module.exports (returnError);
