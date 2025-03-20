@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+    <main>
+        <div class="divUsers">
+            <button class="viewAllUsers">Ver Todos los Usuarios</button>
+            <div class="addUserGet">
+                <input type="text" name="nombre" id="nombre" class="nombre">
+                <input type="number" name="edad" id="edad" class="edad">
+                <input type="mail" name="mail" id="mail" class="mail">
+                <button class="addByGet">Add By Get</button>
+            </div>
+            <div class="verPerfil">
+                <input type="text" name="nombreID" id="nombreID" placeholder="Saber datos por id">
+                <button class="searchById">searchById</button>
+            </div>
+            <div class="addUserPost">
+                <input type="text" name="nombre" id="nombre" class="nombre">
+                <input type="number" name="edad" id="edad" class="edad">
+                <input type="mail" name="mail" id="mail" class="mail">
+                <button class="addByPost">Add By Post</button>
+            </div>
+            <div class="editUser">
+                <input type="number" name="idUserToEdit" id="idUserToEdit">
+                <input type="mail" name="newMail" id="newMail" placeholder="Nuevo mail">
+                <button class="update">update</button>
+            </div>
+            <div class="deleteUser">
+                <input type="text" name="idUserToDelete" id="idUserToDelete" placeholder="Delete por id">
+                <button class="delete">delete</button>
+            </div>
+            <div class="buscarUser">
+                <input type="text" name="nombreSearch" id="nombreSearch" class="nombreSearch">
+                <input type="number" name="edadSearch" id="edadSearch" class="edadSearch">
+                <input type="mail" name="mailSearch" id="mailSearch" class="mailSearch">
+                <button class="buscarInfo">Buscar</button>
+            </div>
+        </div>
+    </main>
+    <script src="../js/client.js"></script>
+</body>
+</html>
