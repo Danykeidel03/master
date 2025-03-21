@@ -10,25 +10,30 @@ import * as error from "./error.js";
 isLogued()
 let buttonLogin = document.querySelector('.btn-login')
 
-buttonLogin.addEventListener('click', function() {
+buttonLogin.addEventListener('click', function () {
     const userMail = document.querySelector('.inputs-login .user').value
     const userPass = document.querySelector('.inputs-login .pass').value
-    validateForm(userMail, userPass)
+    if (validateForm(userMail, userPass)) {
+        sessionStorage.setItem('dataUser', valueUser)
+        isLogued()
+    }
 })
 
-function isLogued(){
+function isLogued() {
     const datosUser = sessionStorage.getItem('dataUser')
-    datosUser ? console.log('hay') : console.log('no hay');
+    datosUser ? window.location.href = 'main.html' : console.log('no hay');
 }
 
-function validateForm(valueUser, valuePass){
-    if(valueUser.includes('@') && valueUser.includes('.com')){
-        if(valuePass.includes('@') && valuePass.includes('.com')){
-
-        }else{
-
+function validateForm(valueUser, valuePass) {
+    let valicacion = false
+    if (valueUser.includes('@') && valueUser.includes('.com')) {
+        if (valuePass.length > 6) {
+            valicacion = true
+        } else {
+            error.returnError('Contraseña Poco Segura', buttonLogin, document.querySelector('.form-login'))
         }
-    }else{
+    } else {
         error.returnError('Debes poner un Mail', buttonLogin, document.querySelector('.form-login'))
     }
+    return valicacion
 }

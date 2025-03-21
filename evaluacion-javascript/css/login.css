@@ -1,19 +1,10 @@
-html,
-body,
 main {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    background-color: #E8E8E8;
-}
-
-main{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.overlayLogin{
+.overlayLogin {
     position: fixed;
     top: 0;
     left: 0;
@@ -24,7 +15,7 @@ main{
     z-index: 1;
 }
 
-.modalLogin{
+.modalLogin {
     background-color: white;
     border-radius: 16px;
     display: flex;
@@ -38,37 +29,47 @@ main{
 
 .title-login,
 .form-login,
-.inputs-login input{
+.inputs-login input {
     width: 90%;
     text-align: center;
 }
 
-.inputs-login{
+.inputs-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    width: 90%;
 }
 
-.form-login{
+.form-login {
     padding: 0 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .inputs-login input,
-.btn-login{
+.btn-login {
     padding: 12px;
     border-radius: 12px;
     border: 1px solid black;
 }
 
-.btn-login{
-    margin-top: 20px;
+.btn-login {
+    margin-top: 10px;
     background-color: #E8E8E8;
 }
 
-.btn-login:hover{
+.btn-login:hover {
     cursor: pointer;
     color: black;
     background-color: #DAF7A6;
+}
+
+.divError{
+    width: 83%;
+    margin-top: 10px;
 }

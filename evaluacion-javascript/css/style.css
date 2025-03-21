@@ -1,0 +1,47 @@
+html,
+body,
+main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: #E8E8E8;
+}
+
+.divError {
+    padding: 8px;
+    background-color: #ffcdd2;
+    color: red;
+    text-align: center;
+}
+
+.header {
+    background-color: white;
+    padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    max-height: 96px;
+}
+
+.accordionMenu img,
+.accordionMenu {
+    width: 32px;
+    height: 32px;
+}
+
+.header__logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+}
+
+.menu-content {
+    display: none;
+}
+
+.menu-content.active {
+    display: flex;
+    width: 200px;
+    height: calc(100% - 96px);
+    background-color: white;
+}
