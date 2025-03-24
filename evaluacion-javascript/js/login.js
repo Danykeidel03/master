@@ -7,19 +7,18 @@
 
 import * as error from "./error.js";
 
-isLogued()
 let buttonLogin = document.querySelector('.btn-login')
 
 buttonLogin.addEventListener('click', function () {
     const userMail = document.querySelector('.inputs-login .user').value
     const userPass = document.querySelector('.inputs-login .pass').value
     if (validateForm(userMail, userPass)) {
-        sessionStorage.setItem('dataUser', valueUser)
+        sessionStorage.setItem('dataUser', userMail)
         isLogued()
     }
 })
 
-function isLogued() {
+export function isLogued() {
     const datosUser = sessionStorage.getItem('dataUser')
     datosUser ? window.location.href = 'main.html' : console.log('no hay');
 }

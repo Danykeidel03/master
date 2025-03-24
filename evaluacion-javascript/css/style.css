@@ -7,6 +7,14 @@ main {
     background-color: #E8E8E8;
 }
 
+p,
+h1,
+h2,
+h3,
+li {
+    font-family: sans-serif;
+}
+
 .divError {
     padding: 8px;
     background-color: #ffcdd2;
@@ -20,6 +28,10 @@ main {
     display: flex;
     justify-content: space-between;
     max-height: 96px;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .accordionMenu img,
@@ -40,8 +52,114 @@ main {
 }
 
 .menu-content.active {
-    display: flex;
     width: 200px;
-    height: calc(100% - 96px);
+    height: calc(100% - 123px);
     background-color: white;
+    position: fixed;
+    top: 97px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:
+        12px;
+}
+
+.divLogout {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.divLogout button {
+    border: 0;
+    background-color: transparent;
+    position: relative;
+}
+
+.divLogout button::before {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    left: -12px;
+    right: 0;
+    background-image: url('../images/logout.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.divGestionarTareas ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-left: 10px;
+    margin: 0;
+    position: relative;
+}
+
+.divGestionarTareas ul li {
+    display: flex;
+    align-items: center;
+}
+
+.divGestionarTareas ul li p {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.divGestionarTareas ul li::after {
+    content: "";
+    display: block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    background-image: url('../images/punto.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-content h1 {
+    margin-top: 30px;
+}
+
+.main-content {
+    height: calc(100% - 97px);
+    padding-top: 97px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textoHome {
+    display: flex;
+    gap: 20px;
+    width: 1280px;
+    max-width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.explicacionApp ul,
+.objetivosApp ul{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.explicacionApp,
+.objetivosApp{
+    padding: 16px;
+    background-color: white;
+    border-radius: 12px;
+    width: 50%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
