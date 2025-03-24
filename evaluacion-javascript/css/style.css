@@ -1,165 +1,260 @@
 html,
 body,
 main {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    background-color: #E8E8E8;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 p,
 h1,
 h2,
 h3,
-li {
-    font-family: sans-serif;
+li,
+button {
+  font-family: sans-serif;
 }
 
 .divError {
-    padding: 8px;
-    background-color: #ffcdd2;
-    color: red;
-    text-align: center;
+  padding: 8px;
+  background-color: #ffcdd2;
+  color: red;
+  text-align: center;
 }
 
 .header {
-    background-color: white;
-    padding: 32px;
-    display: flex;
-    justify-content: space-between;
-    max-height: 96px;
-    border-bottom: 1px solid black;
-    position: fixed;
-    width: 100%;
-    top: 0;
+  background-color: white;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  max-height: 96px;
+  border-bottom: 1px solid black;
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 .accordionMenu img,
 .accordionMenu {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .header__logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
 }
 
 .menu-content {
-    display: none;
+  display: none;
 }
 
 .menu-content.active {
-    width: 200px;
-    height: calc(100% - 123px);
-    background-color: white;
-    position: fixed;
-    top: 97px;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding:
-        12px;
+  width: 200px;
+  height: calc(100% - 123px);
+  background-color: white;
+  position: fixed;
+  top: 97px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
 }
 
 .divLogout {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 .divLogout button {
-    border: 0;
-    background-color: transparent;
-    position: relative;
+  border: 0;
+  background-color: transparent;
+  position: relative;
 }
 
 .divLogout button::before {
-    content: "";
-    display: block;
-    width: 12px;
-    height: 12px;
-    position: absolute;
-    top: 3px;
-    bottom: 0;
-    left: -12px;
-    right: 0;
-    background-image: url('../images/logout.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 3px;
+  bottom: 0;
+  left: -12px;
+  right: 0;
+  background-image: url("../images/logout.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .divGestionarTareas ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    padding-left: 10px;
-    margin: 0;
-    position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-left: 10px;
+  margin: 0;
+  position: relative;
 }
 
 .divGestionarTareas ul li {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+.divGestionarTareas ul li:hover {
+  cursor: pointer;
 }
 
 .divGestionarTareas ul li p {
-    margin: 0;
-    padding-left: 25px;
+  margin: 0;
+  padding-left: 25px;
 }
 
 .divGestionarTareas ul li::after {
-    content: "";
-    display: block;
-    width: 17px;
-    height: 17px;
-    position: absolute;
-    background-image: url('../images/punto.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+  content: "";
+  display: block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  background-image: url("../images/punto.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .main-content h1 {
-    margin-top: 30px;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .main-content {
-    height: calc(100% - 97px);
-    padding-top: 97px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  height: calc(100% - 97px);
+  padding-top: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 90%;
 }
 
 .textoHome {
-    display: flex;
-    gap: 20px;
-    width: 1280px;
-    max-width: 90%;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  gap: 20px;
+  width: 1280px;
+  max-width: 90%;
+  justify-content: center;
+  align-items: center;
 }
 
 .explicacionApp ul,
-.objetivosApp ul{
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.objetivosApp ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  padding-left: 16px;
 }
 
 .explicacionApp,
-.objetivosApp{
-    padding: 16px;
-    background-color: white;
-    border-radius: 12px;
-    width: 50%;
-    min-height: 300px;
-    display: flex;
+.objetivosApp {
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+  width: 50%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bienvenidoUser {
+  position: absolute;
+  right: 75px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.modalAddTarea {
+  display: none;
+}
+
+.modalAddTarea.active {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlayModalAddTarea {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background-color: rgba(51, 51, 51, 0.55);
+}
+
+.modal-containerAddTarea {
+  z-index: 2;
+  width: 450px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 12px;
+  position: relative;
+}
+
+.opcionesDeEjercicios h2 {
+  text-align: center;
+}
+
+.buttonsEjercicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 14px;
+  padding: 12px;
+}
+
+.modal-closeAddTarea {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 780px) {
+  .textoHome {
     flex-direction: column;
-    align-items: center;
+    width: 100%;
+  }
+
+  .explicacionApp,
+  .objetivosApp {
+    width: 100%;
+    margin-bottom: 35px;
+  }
 }
