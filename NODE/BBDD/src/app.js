@@ -26,3 +26,5 @@ app.use(nokMiddleware)
 app.listen(5000, () => {
     console.log('puerto 5000')
 })
+
+module.exports = app
