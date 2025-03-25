@@ -1,5 +1,7 @@
 // IMPORTACION DE SERVICIOS
 
+const {getUsers, insertUser} = require('../services/userServices')
+
 const usuarios = [
     { nombre: "Juan Pérez", edad: 25, mail: "juanp@example.com", rol: "admin", id_user: 1 },
     { nombre: "María Gómez", edad: 30, mail: "mariag@example.com", rol: "editor", id_user: 2 },
@@ -14,6 +16,14 @@ const usuarios = [
 ];
 
 const userController = {
+    async getUserController(req, response){
+        try {
+            const data = await getUsers()
+            response.status(200).json(data)
+        }catch(e){
+            console.log('Error al pillar usuario de BBDD', e);
+        }
+    },
     createUser(request, response) {
         const {nombre,edad,mail} = request.query
         usuarios.push({nombre: nombre, edad: edad, mail: mail, rol: "admin", id_user: 11})

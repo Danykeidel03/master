@@ -237,13 +237,39 @@ button {
   right: 10px;
   top: 10px;
   background: none;
-  border: 1px solid black;
+  border: none;
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+}
+
+.modal-closeAddTarea:hover{
+  cursor: pointer;
+}
+
+.modal-closeAddTarea::before, .modal-closeAddTarea::after {
+  height: 1px;
+  background-color: #333;
+}
+
+.modal-closeAddTarea::after {
+  content: '';
+  width: 18px;
+  transform: rotate(-45deg);
+  position: absolute;
+  opacity: 1;
+}
+
+.modal-closeAddTarea::before {
+  content: '';
+  width: 18px;
+  transform: rotate(45deg);
+  position: absolute;
+  opacity: 1;
 }
 
 @media (max-width: 780px) {
