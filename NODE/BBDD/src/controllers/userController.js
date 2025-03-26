@@ -1,6 +1,7 @@
 // IMPORTACION DE SERVICIOS
 
 const {getUsers, insertUser} = require('../services/userServices')
+const {createUserValidators} = require('../validations/userValidator')
 
 const usuarios = [
     { nombre: "Juan Pérez", edad: 25, mail: "juanp@example.com", rol: "admin", id_user: 1 },
@@ -16,33 +17,42 @@ const usuarios = [
 ];
 
 const userController = {
-    async getUserController(req, response){
-        try {
-            const data = await getUsers()
-            response.status(200).json(data)
-        }catch(e){
-            console.log('Error al pillar usuario de BBDD', e);
+    getUserController: [
+
+        async (req, response) => {
+            try {
+                const data = await getUsers()
+                response.status(200).json(data)
+            }catch(e){
+                console.log('Error al pillar usuario de BBDD', e);
+            }
         }
-    },
-    createUser(request, response) {
-        const {nombre,edad,mail} = request.query
-        usuarios.push({nombre: nombre, edad: edad, mail: mail, rol: "admin", id_user: 11})
-        response.status(200).json({success: 'OK', mensaje: `Hola ${nombre}, edad ${edad}, mail ${mail}`})
-    },
-    searchUser(request,response){
-        const {nombre,edad,mail} = request.query
-        let mensaje = ""
-        if(nombre != ""){
-            mensaje += `Nombre = ${nombre} `
+    ],
+
+    createUser: [
+        ...createUserValidators,
+        (request, response) => {
+            const {nombre,edad,mail} = request.query
+            usuarios.push({nombre: nombre, edad: edad, mail: mail, rol: "admin", id_user: 11})
+            response.status(200).json({success: 'OK', mensaje: `Hola ${nombre}, edad ${edad}, mail ${mail}`})
         }
-        if(edad != ""){
-            mensaje += `Edad = ${edad} `
+    ],
+    searchUser:[
+        (request,response) => {
+            const {nombre,edad,mail} = request.query
+            let mensaje = ""
+            if(nombre != ""){
+                mensaje += `Nombre = ${nombre} `
+            }
+            if(edad != ""){
+                mensaje += `Edad = ${edad} `
+            }
+            if(mail != ""){
+                mensaje += `Mail = ${mail} `
+            }
+            response.status(200).json({success: 'OK', mensaje: mensaje})
         }
-        if(mail != ""){
-            mensaje += `Mail = ${mail} `
-        }
-        response.status(200).json({success: 'OK', mensaje: mensaje})
-    }
+    ]
     
 }
 
