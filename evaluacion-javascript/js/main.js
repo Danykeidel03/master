@@ -4,15 +4,23 @@
 
 import * as modal from "./openModal.js";
 
+const datosUser = sessionStorage.getItem('dataUser')
+datosUser ? console.log('hay') : window.location.href = 'index.html';
+
 addName()
-//getExerciseds().then(data => console.log(data))
 
 const buttonEspalda = document.querySelector('.ejercicioEspalda')
 const buttonPecho = document.querySelector('.ejercicioPecho')
 const buttonHombro = document.querySelector('.ejercicioHombro')
-const buttoPierna = document.querySelector('.ejerciciPierna')
+const buttoPierna = document.querySelector('.ejercicioPierna')
 const buttonBiceps = document.querySelector('.ejercicioBiceps')
-const buttonTriceps = document.querySelector('.ejercicioTriceps')
+const buttonCardio = document.querySelector('.ejercicioCardio')
+
+console.log(buttonCardio);
+
+[buttoPierna, buttonBiceps, buttonEspalda, buttonHombro, buttonPecho, buttonCardio].forEach(buttonFinal => {
+    buttonFinal.addEventListener('click', () => { seeExercises(buttonFinal.id) })
+});
 
 //hacer funcion sacar ejercicios
 
@@ -22,9 +30,6 @@ const overlayAdd = document.querySelector('.overlayModalAddTarea')
 const ventanaAdd = document.querySelector('.modalAddTarea')
 
 modal.openCloseModal(btnAbrirAdd, closeButtonAdd, overlayAdd, ventanaAdd)
-
-const datosUser = sessionStorage.getItem('dataUser')
-datosUser ? console.log('hay') : window.location.href = 'index.html';
 
 const btnMenu = document.querySelector('.accordionMenu')
 btnMenu.addEventListener('click', function () {
@@ -44,6 +49,13 @@ function addName() {
     document.querySelector('.bienvenidoUser').textContent = nombreUser
 }
 
+function seeExercises(id) {
+    getExerciseds(id).then(data => data.forEach(element => {
+        console.log(element)
+        console.log(traduirTexts(element))
+    }));
+}
+
 async function getExerciseds(partBody) {
     const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${partBody}?limit=10&offset=0`;
     const options = {
@@ -60,4 +72,8 @@ async function getExerciseds(partBody) {
     } catch (error) {
         console.error(error);
     }
+}
+
+async function traduirTexts(textTraducir) {
+    
 }
