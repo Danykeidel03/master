@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const userRoutes = require('./routes/userRouter')
+const userProducts = require('./routes/userProducts')
 const cors = require('cors') 
 const nokMiddleware = require('./middlewares/nokMiddleware');
 const nextMiddleware = require('./middlewares/nextMiddleware');
@@ -29,6 +30,9 @@ app.use('/', apiLimiter)
 
 //Definimos enrutadores
 app.use('/users', userRoutes)
+
+//crud con products
+app.use('/products', userProducts)
 
 app.use('/users',(req, res) => {
     res.send('Respuesta final')
