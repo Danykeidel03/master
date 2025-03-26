@@ -4,7 +4,7 @@ const userController = require('../controllers/userController')
 
 router.get('/', userController.getUserController)
 
-router.get('/new' , userController.createUser)
+router.post('/new' , userController.createUser)
 
 router.get('/search' , userController.searchUser)
 

@@ -7,6 +7,7 @@ async function insertUser(nombre, mail){
         const user = new Usuario({nombre,mail})
         const res = await user.save()
         console.log('User insertado', res);
+        return res;
     }catch(e){
         console.log('Error:', e);
     }

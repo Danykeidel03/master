@@ -1,13 +1,11 @@
 const express = require('express')
 const app = express()
-const apiRouter = require('./routes/homeRoutes')
 const userRoutes = require('./routes/userRouter')
 const cors = require('cors') 
 const nokMiddleware = require('./middlewares/nokMiddleware');
 const nextMiddleware = require('./middlewares/nextMiddleware');
 const errorMiddleware = require('./middlewares/errorMiddleware');
 const helmet = require('helmet')
-const rateLimit = require('express-rate-limit')
 //proteccion con limite de peticiones por ip
 const rateLimit = require('express-rate-limit')
 
@@ -30,19 +28,13 @@ const apiLimiter = rateLimit({
 app.use('/', apiLimiter)
 
 //Definimos enrutadores
-app.use('/api', apiRouter)
 app.use('/users', userRoutes)
-app.use('/prueba', nextMiddleware)
 
-app.use('/prueba',(req, res) => {
+app.use('/users',(req, res) => {
     res.send('Respuesta final')
 })
 
 app.use(errorMiddleware)
 app.use(nokMiddleware)
-
-app.listen(5000, () => {
-    console.log('puerto 5000')
-})
 
 module.exports = app
