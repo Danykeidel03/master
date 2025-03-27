@@ -10,6 +10,9 @@ const helmet = require('helmet')
 //proteccion con limite de peticiones por ip
 const rateLimit = require('express-rate-limit')
 
+//const cookieParser = require('cookie-parser');
+//const jwt = require('jsonwebtoken'); este va en un controller
+
 //Proteccion contra consultas no swl maliciosas
 const mongoSanitize = require('express-mongo-sanitize')
 
