@@ -212,12 +212,14 @@ button {
 
 .modal-containerAddTarea {
   z-index: 2;
-  width: 450px;
-  height: 300px;
+  width: 850px;
+  height: auto;
   background-color: white;
   border: 1px solid black;
   border-radius: 12px;
   position: relative;
+  padding: 15px;
+  max-height: 500px;
 }
 
 .opcionesDeEjercicios h2 {
@@ -247,17 +249,18 @@ button {
   color: transparent;
 }
 
-.modal-closeAddTarea:hover{
+.modal-closeAddTarea:hover {
   cursor: pointer;
 }
 
-.modal-closeAddTarea::before, .modal-closeAddTarea::after {
+.modal-closeAddTarea::before,
+.modal-closeAddTarea::after {
   height: 1px;
   background-color: #333;
 }
 
 .modal-closeAddTarea::after {
-  content: '';
+  content: "";
   width: 18px;
   transform: rotate(-45deg);
   position: absolute;
@@ -265,11 +268,39 @@ button {
 }
 
 .modal-closeAddTarea::before {
-  content: '';
+  content: "";
   width: 18px;
   transform: rotate(45deg);
   position: absolute;
   opacity: 1;
+}
+
+.divAddEjercicios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: calc(100% - 156px);
+}
+
+.divAddExercise {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+}
+
+.imgPhotoExercise {
+  max-height: 200px;
+  width: auto;
+}
+
+.divCOntentExercise .nameExercise {
+  text-transform: capitalize;
+  font-size: 24px;
+  font-family: sans-serif;
 }
 
 @media (max-width: 780px) {

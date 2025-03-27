@@ -57,13 +57,47 @@ function seeExercises(id) {
         }
         traduirTexts(objEjercicio).then(traducciones => {
             let datos = traducciones.data
-            printExercises(datos)
+            printExercises(datos, element.gifUrl)
         })
     }));
 }
 
-function printExercises(ejercicio){
+function printExercises(ejercicio, gif){
+    let divExercises = document.querySelector('.divAddEjercicios')
+    let divPrincipalAddExercise = document.createElement('div');
+    divPrincipalAddExercise.classList.add('divAddExercise');
 
+    //Div imagen
+    let divPhotoAddExerciseDiv = document.createElement('div');
+    divPhotoAddExerciseDiv.classList.add('divPhotoExercise');
+
+    let divPhotoAddExerciseImg = document.createElement('img');
+    divPhotoAddExerciseImg.classList.add('imgPhotoExercise');
+    divPhotoAddExerciseImg.setAttribute('src', gif)
+    divPhotoAddExerciseImg.setAttribute('alt', 'gif-exercise')
+
+    divPhotoAddExerciseDiv.appendChild(divPhotoAddExerciseImg)
+
+    //Div contenido
+    let divContentAddExerciseDiv = document.createElement('div');
+    divContentAddExerciseDiv.classList.add('divCOntentExercise');
+
+    let spanNameExercise = document.createElement('span');
+    spanNameExercise.classList.add('nameExercise')
+    spanNameExercise.textContent = ejercicio[0].translation
+
+    let divNameInstructions = document.createElement('div');
+    divNameInstructions.classList.add('nameInstructions')
+    divNameInstructions.textContent = ejercicio[1].translation
+
+    divContentAddExerciseDiv.appendChild(spanNameExercise)
+    divContentAddExerciseDiv.appendChild(divNameInstructions)
+
+    //div generico
+    divPrincipalAddExercise.appendChild(divPhotoAddExerciseDiv)
+    divPrincipalAddExercise.appendChild(divContentAddExerciseDiv)
+
+    divExercises.appendChild(divPrincipalAddExercise)
 }
 
 async function getExerciseds(partBody) {
