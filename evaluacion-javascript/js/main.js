@@ -51,9 +51,19 @@ function addName() {
 
 function seeExercises(id) {
     getExerciseds(id).then(data => data.forEach(element => {
-        console.log(element)
-        console.log(traduirTexts(element))
+        let objEjercicio = {
+            nombre: element.name,
+            instrucciones: element.instructions.join(","),
+        }
+        traduirTexts(objEjercicio).then(traducciones => {
+            let datos = traducciones.data
+            printExercises(datos)
+        })
     }));
+}
+
+function printExercises(ejercicio){
+
 }
 
 async function getExerciseds(partBody) {
@@ -75,5 +85,29 @@ async function getExerciseds(partBody) {
 }
 
 async function traduirTexts(textTraducir) {
-    
+    const url = 'https://traducciones.mtda.es/api/traducir';
+    const headers = {
+        "Content-Type": "application/json"
+    }
+    const body = JSON.stringify({
+        "idioma": "es_ES",
+        "textos": [
+            {
+                "nombre": textTraducir.nombre,
+                "id": 1,
+                "instrucciones": textTraducir.instrucciones
+            }
+        ],
+        "formalidad": "prefer_more"
+    })
+
+    const opcionesRequeridas = {
+        method: "POST",
+        headers: headers,
+        body: body,
+        redirect: "follow"
+    }
+    const response = await fetch(url, opcionesRequeridas)
+    const result = await response.json()
+    return (result);
 }
