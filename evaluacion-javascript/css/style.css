@@ -297,10 +297,31 @@ button {
   width: auto;
 }
 
-.divCOntentExercise .nameExercise {
+.divContentExercise .nameExercise {
   text-transform: capitalize;
   font-size: 24px;
   font-family: sans-serif;
+}
+
+.divContentExercise {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nameInstructions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.addButton {
+  border: .8px solid #bbb;
+  background-color: #fff;
+  margin: 0 15px;
+  border-radius: 16px;
+  padding: 14px;
 }
 
 @media (max-width: 780px) {

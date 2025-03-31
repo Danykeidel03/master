@@ -62,34 +62,28 @@ function seeExercises(id) {
     }));
 }
 
-function printExercises(ejercicio, gif){
+function printExercises(ejercicio, gif) {
     let divExercises = document.querySelector('.divAddEjercicios')
-    let divPrincipalAddExercise = document.createElement('div');
-    divPrincipalAddExercise.classList.add('divAddExercise');
+    let divPrincipalAddExercise = createNewElement('div', 'divAddExercise', '')
 
     //Div imagen
-    let divPhotoAddExerciseDiv = document.createElement('div');
-    divPhotoAddExerciseDiv.classList.add('divPhotoExercise');
+    let divPhotoAddExerciseDiv = createNewElement('div', 'divPhotoExercise', '')
 
-    let divPhotoAddExerciseImg = document.createElement('img');
-    divPhotoAddExerciseImg.classList.add('imgPhotoExercise');
+    let divPhotoAddExerciseImg = createNewElement('img', 'imgPhotoExercise', '')
     divPhotoAddExerciseImg.setAttribute('src', gif)
     divPhotoAddExerciseImg.setAttribute('alt', 'gif-exercise')
 
     divPhotoAddExerciseDiv.appendChild(divPhotoAddExerciseImg)
 
     //Div contenido
-    let divContentAddExerciseDiv = document.createElement('div');
-    divContentAddExerciseDiv.classList.add('divCOntentExercise');
+    let divContentAddExerciseDiv = createNewElement('div', 'divContentExercise', '')
+    let spanNameExercise = createNewElement('span', 'nameExercise', ejercicio[0].translation)
+    let divNameInstructions = createNewElement('div', 'nameInstructions', ejercicio[1].translation)
+    let buttonAdd = createNewElement('button', 'addButton', '+')
+    buttonAdd.onclick = () => addExercise(ejercicio[0].translation, gif)
+    //buttonAdd.setAttribute('onclick', `addExercise('${ejercicio[0].translation}', '${gif}')`)
 
-    let spanNameExercise = document.createElement('span');
-    spanNameExercise.classList.add('nameExercise')
-    spanNameExercise.textContent = ejercicio[0].translation
-
-    let divNameInstructions = document.createElement('div');
-    divNameInstructions.classList.add('nameInstructions')
-    divNameInstructions.textContent = ejercicio[1].translation
-
+    divNameInstructions.appendChild(buttonAdd)
     divContentAddExerciseDiv.appendChild(spanNameExercise)
     divContentAddExerciseDiv.appendChild(divNameInstructions)
 
@@ -100,8 +94,15 @@ function printExercises(ejercicio, gif){
     divExercises.appendChild(divPrincipalAddExercise)
 }
 
+function createNewElement(type, clase, content) {
+    let newElement = document.createElement(type);
+    newElement.classList.add(clase)
+    if (content != '') { newElement.textContent = content }
+    return newElement;
+}
+
 async function getExerciseds(partBody) {
-    const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${partBody}?limit=10&offset=0`;
+    const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${partBody}?limit=1&offset=0`;
     const options = {
         method: 'GET',
         headers: {
@@ -144,4 +145,22 @@ async function traduirTexts(textTraducir) {
     const response = await fetch(url, opcionesRequeridas)
     const result = await response.json()
     return (result);
+}
+
+function addExercise(infoName, infoGif) {
+    console.log('aqui llega');
+    let arrayObjExercises = []
+    if (localStorage.getItem('ejercicios')) {
+        const ejercicios = JSON.parse(localStorage.getItem("ejercicios"));
+        ejercicios[1].push({ nombreEjercicio: infoName, giftEjercicio: infoGif })
+        arrayObjExercises = ejercicios[1]
+        localStorage.removeItem('ejercicios')
+    } else {
+        arrayObjExercises = [{ nombreEjercicio: infoName, giftEjercicio: infoGif }]
+    }
+    const objEjercicios = [
+        sessionStorage.getItem('dataUser'),
+        arrayObjExercises
+    ];
+    localStorage.setItem('ejercicios', JSON.stringify(objEjercicios))
 }
