@@ -20,7 +20,7 @@ const createProductValidators = [
   body("dimensiones")
     .notEmpty()
     .withMessage("El dimensiones es obligatorio")
-    .isObject()
+    .isString()
     .withMessage("El dimensiones debe ser un texto"),
 
   body("descripcion")

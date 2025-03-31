@@ -1,0 +1,7 @@
+.modalAddProduct{
+    display: none;
+}
+
+.modalAddProduct.active{
+    display: block;
+}

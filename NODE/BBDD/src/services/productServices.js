@@ -35,6 +35,7 @@ async function getProducts(){
     try{
         const products = await Product.find()
         console.log('Usuarios:', products);
+        return products
     }catch(e){
         console.log('Error:', e);
     }
