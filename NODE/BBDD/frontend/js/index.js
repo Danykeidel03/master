@@ -40,5 +40,6 @@ btnMostrarProductos.addEventListener('click', function(){
     const resultAddProduct = apiConfig.doFetch('http://localhost:3000/products','GET')
     resultAddProduct.then(result => result.forEach(element => {
       console.log(element)  
+      domUso.addToDom('.divListadoUsers', element)
     }))
 })
