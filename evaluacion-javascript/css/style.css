@@ -324,6 +324,26 @@ button {
   padding: 14px;
 }
 
+.addButton:hover{
+  cursor: pointer;
+}
+
+.divGestionarTareas ul li p a{
+  color: black;
+  text-decoration: none;
+}
+
+.divCustom{
+  padding: 12px;
+}
+
+.divCustom button{
+  border: .8px solid #bbb;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 14px;
+}
+
 @media (max-width: 780px) {
   .textoHome {
     flex-direction: column;
