@@ -65,7 +65,6 @@ function printExercises(ejercicio, gif) {
     let divNameInstructions = createNewElement.createNewElement('div', 'nameInstructions', ejercicio[1].translation)
     let buttonAdd = createNewElement.createNewElement('button', 'addButton', '+')
     buttonAdd.onclick = () => addExercise(ejercicio[0].translation, gif)
-    //buttonAdd.setAttribute('onclick', `addExercise('${ejercicio[0].translation}', '${gif}')`)
 
     divNameInstructions.appendChild(buttonAdd)
     divContentAddExerciseDiv.appendChild(spanNameExercise)
@@ -139,4 +138,45 @@ function addExercise(infoName, infoGif) {
         arrayObjExercises
     ];
     localStorage.setItem(`ejercicios-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjercicios))
+}
+
+export function showExercises(divContainer) {
+    if (localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)) {
+        let exercises = JSON.parse(localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`));
+        exercises[1].forEach(element => {
+            console.log(element);
+            const containerExercises = createNewElement.createNewElement('div', 'ejercicio', '')
+            const exerciseContainer = createNewElement.createNewElement('div', 'ejercicio-individual-general', '')
+            const exerciseName = createNewElement.createNewElement('div', 'ejercicio-individual-nombre', element.nombreEjercicio)
+            const exerciseFoto = createNewElement.createNewElement('img', 'ejercicio-individual-foto', '')
+            exerciseFoto.setAttribute('src', element.giftEjercicio)
+            exerciseFoto.setAttribute('alt', 'gif-exercise')
+            const buttonAdd = createNewElement.createNewElement('button', 'endExerciseButton', 'Finalizar')
+            buttonAdd.onclick = () => endExercise(element.nombreEjercicio)
+            exerciseContainer.appendChild(buttonAdd)
+            exerciseContainer.appendChild(exerciseName)
+            containerExercises.appendChild(exerciseContainer)
+            containerExercises.appendChild(exerciseFoto)
+            divContainer.appendChild(containerExercises)
+        });
+    }
+}
+
+function endExercise(nombre) {
+    let arrayObjExercisesEnded = []
+    if (localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`)) {
+        const ejerciciosFinalizados = JSON.parse(localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`));
+        console.log(ejerciciosFinalizados[1]);
+        ejerciciosFinalizados[1].push({ nombreEjercicio: nombre })
+        arrayObjExercisesEnded = ejerciciosFinalizados[1]
+        localStorage.removeItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`)
+    } else {
+        arrayObjExercisesEnded = [{ nombreEjercicio: nombre }]
+    }
+    
+    const objEjerciciosFinalizados = [
+        sessionStorage.getItem('dataUser'),
+        arrayObjExercisesEnded
+    ];
+    localStorage.setItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjerciciosFinalizados))
 }

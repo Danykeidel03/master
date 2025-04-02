@@ -20,10 +20,31 @@
 .ejercicio .ejercicio-individual-nombre {
     text-transform: capitalize;
     font-size: 24px;
+    font-family: sans-serif;
 }
 
 .divEjercicios {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
+}
+
+.ejercicio-individual-general {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    width: calc(100%);
+}
+
+.endExerciseButton {
+    width: 30%;
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #daf7a6;
+}
+
+.endExerciseButton:hover{
+    cursor: pointer;
 }

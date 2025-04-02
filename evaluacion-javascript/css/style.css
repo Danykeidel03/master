@@ -4,7 +4,7 @@ main {
   height: 100%;
   width: 100%;
   margin: 0;
-  background-color: #e8e8e8;
+  background-color: #daf7a6;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +27,7 @@ button {
 }
 
 .header {
-  background-color: white;
+  background-color: #e8e8e8;
   padding: 32px;
   display: flex;
   justify-content: space-between;
@@ -58,7 +58,7 @@ button {
 .menu-content.active {
   width: 200px;
   height: calc(100% - 123px);
-  background-color: white;
+  background-color: #e8e8e8;
   position: fixed;
   top: 97px;
   left: 0;
