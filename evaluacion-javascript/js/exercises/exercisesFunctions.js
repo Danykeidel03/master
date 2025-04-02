@@ -3,6 +3,7 @@
  */
 
 import * as modal from "../dom/openModal.js";
+import * as createNewElement from "../dom/createElement.js";
 
 export function toAddExercise() {
     const buttonEspalda = document.querySelector('.ejercicioEspalda')
@@ -47,22 +48,22 @@ function seeExercises(id) {
 
 function printExercises(ejercicio, gif) {
     let divExercises = document.querySelector('.divAddEjercicios')
-    let divPrincipalAddExercise = createNewElement('div', 'divAddExercise', '')
+    let divPrincipalAddExercise = createNewElement.createNewElement('div', 'divAddExercise', '')
 
     //Div imagen
-    let divPhotoAddExerciseDiv = createNewElement('div', 'divPhotoExercise', '')
+    let divPhotoAddExerciseDiv = createNewElement.createNewElement('div', 'divPhotoExercise', '')
 
-    let divPhotoAddExerciseImg = createNewElement('img', 'imgPhotoExercise', '')
+    let divPhotoAddExerciseImg = createNewElement.createNewElement('img', 'imgPhotoExercise', '')
     divPhotoAddExerciseImg.setAttribute('src', gif)
     divPhotoAddExerciseImg.setAttribute('alt', 'gif-exercise')
 
     divPhotoAddExerciseDiv.appendChild(divPhotoAddExerciseImg)
 
     //Div contenido
-    let divContentAddExerciseDiv = createNewElement('div', 'divContentExercise', '')
-    let spanNameExercise = createNewElement('span', 'nameExercise', ejercicio[0].translation)
-    let divNameInstructions = createNewElement('div', 'nameInstructions', ejercicio[1].translation)
-    let buttonAdd = createNewElement('button', 'addButton', '+')
+    let divContentAddExerciseDiv = createNewElement.createNewElement('div', 'divContentExercise', '')
+    let spanNameExercise = createNewElement.createNewElement('span', 'nameExercise', ejercicio[0].translation)
+    let divNameInstructions = createNewElement.createNewElement('div', 'nameInstructions', ejercicio[1].translation)
+    let buttonAdd = createNewElement.createNewElement('button', 'addButton', '+')
     buttonAdd.onclick = () => addExercise(ejercicio[0].translation, gif)
     //buttonAdd.setAttribute('onclick', `addExercise('${ejercicio[0].translation}', '${gif}')`)
 
@@ -75,13 +76,6 @@ function printExercises(ejercicio, gif) {
     divPrincipalAddExercise.appendChild(divContentAddExerciseDiv)
 
     divExercises.appendChild(divPrincipalAddExercise)
-}
-
-function createNewElement(type, clase, content) {
-    let newElement = document.createElement(type);
-    newElement.classList.add(clase)
-    if (content != '') { newElement.textContent = content }
-    return newElement;
 }
 
 async function getExerciseds(partBody) {
