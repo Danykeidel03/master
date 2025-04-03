@@ -29,8 +29,11 @@ export function toAddExercise() {
     modal.openCloseModal(btnAbrirAdd, closeButtonAdd, overlayAdd, ventanaAdd)
 }
 
-export function toAddExerciseCustom(nombre, image){
-    
+export function toAddExerciseCustom(){
+    //hacer funcion sacar ejercicios
+    const nombreExercise = document.querySelector('.nombreEjercicio').value
+    const urlExercise = document.querySelector('.urlEjercicio').value
+    addExercise(nombreExercise,urlExercise)
 }
 
 function seeExercises(id) {
@@ -144,7 +147,6 @@ export function showExercises(divContainer) {
     if (localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)) {
         let exercises = JSON.parse(localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`));
         exercises[1].forEach(element => {
-            console.log(element);
             const containerExercises = createNewElement.createNewElement('div', 'ejercicio', '')
             const exerciseContainer = createNewElement.createNewElement('div', 'ejercicio-individual-general', '')
             const exerciseName = createNewElement.createNewElement('div', 'ejercicio-individual-nombre', element.nombreEjercicio)
@@ -173,10 +175,18 @@ function endExercise(nombre) {
     } else {
         arrayObjExercisesEnded = [{ nombreEjercicio: nombre }]
     }
+
+    const ejercicios = JSON.parse(localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`));
+    const arrayObjExercises = ejercicios[1].filter(item => item.nombreEjercicio !== nombre)
+    const objEjercicios = [
+        sessionStorage.getItem('dataUser'),
+        arrayObjExercises
+    ];
     
     const objEjerciciosFinalizados = [
         sessionStorage.getItem('dataUser'),
         arrayObjExercisesEnded
     ];
     localStorage.setItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjerciciosFinalizados))
+    localStorage.setItem(`ejercicios-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjercicios))
 }

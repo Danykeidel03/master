@@ -8,7 +8,6 @@ export function lookUser() {
 }
 export function addName() {
     let nombreUser = sessionStorage.getItem('dataUser').split('@')[0]
-    console.log(nombreUser);
     document.querySelector('.bienvenidoUser').textContent = nombreUser
 }
 

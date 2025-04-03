@@ -19,6 +19,12 @@ button {
   font-family: sans-serif;
 }
 
+.header__logo {
+  border-radius: 100%;
+  width: 75px;
+  height: auto;
+}
+
 .divError {
   padding: 8px;
   background-color: #ffcdd2;
@@ -28,11 +34,11 @@ button {
 
 .header {
   background-color: #e8e8e8;
-  padding: 32px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-height: 96px;
-  border-bottom: 1px solid black;
   position: fixed;
   width: 100%;
   top: 0;
@@ -60,7 +66,7 @@ button {
   height: calc(100% - 123px);
   background-color: #e8e8e8;
   position: fixed;
-  top: 97px;
+  top: 101px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -86,7 +92,7 @@ button {
   width: 12px;
   height: 12px;
   position: absolute;
-  top: 3px;
+  top: 1px;
   bottom: 0;
   left: -12px;
   right: 0;
@@ -184,12 +190,13 @@ button {
   align-items: center;
 }
 
-.modalAddTarea,.modalAddCustomExercise {
+.modalAddTarea,
+.modalAddCustomExercise {
   display: none;
 }
 
 .modalAddTarea.active,
-.modalAddCustomExercise .active {
+.modalAddCustomExercise.active {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -203,7 +210,8 @@ button {
   align-items: center;
 }
 
-.overlayModalAddTarea {
+.overlayModalAddTarea,
+.overlayModalExercise {
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -211,7 +219,8 @@ button {
   background-color: rgba(51, 51, 51, 0.55);
 }
 
-.modal-containerAddTarea {
+.modal-containerAddTarea,
+.modal-containerExercise {
   z-index: 2;
   width: 850px;
   height: auto;
@@ -221,6 +230,7 @@ button {
   position: relative;
   padding: 15px;
   max-height: 500px;
+  max-width: 85%;
 }
 
 .opcionesDeEjercicios h2 {
@@ -235,7 +245,8 @@ button {
   padding: 12px;
 }
 
-.modal-closeAddTarea {
+.modal-closeAddTarea,
+.modal-closeExercise {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -250,17 +261,59 @@ button {
   color: transparent;
 }
 
-.modal-closeAddTarea:hover {
+.modal-containerExercise {
+  width: 500px;
+}
+
+.divForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.divForm input,
+.divForm textarea,
+.finalizarDia {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.divForm button,
+.buttonsEjercicios button,
+.divCustom button {
+  width: 30%;
+  border: 1px solid black;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #daf7a6;
+}
+
+.buttonsEjercicios button {
+  width: 100%;
+}
+
+.divCustom button {
+  width: 20%;
+}
+
+.modal-closeAddTarea:hover,
+.modal-closeExercise:hover {
   cursor: pointer;
 }
 
 .modal-closeAddTarea::before,
-.modal-closeAddTarea::after {
+.modal-closeAddTarea::after,
+.modal-closeExercise::before,
+.modal-closeExercise::after {
   height: 1px;
   background-color: #333;
 }
 
-.modal-closeAddTarea::after {
+.modal-closeAddTarea::after,
+.modal-closeExercise:after {
   content: "";
   width: 18px;
   transform: rotate(-45deg);
@@ -268,7 +321,8 @@ button {
   opacity: 1;
 }
 
-.modal-closeAddTarea::before {
+.modal-closeAddTarea::before,
+.modal-closeExercise::before {
   content: "";
   width: 18px;
   transform: rotate(45deg);
@@ -281,7 +335,7 @@ button {
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
-  max-height: calc(100% - 156px);
+  max-height: calc(100% - 250px);
 }
 
 .divAddExercise {
@@ -325,25 +379,19 @@ button {
   padding: 14px;
 }
 
-.addButton:hover{
+.addButton:hover {
   cursor: pointer;
 }
 
-.divGestionarTareas ul li p a{
+.divGestionarTareas ul li p a {
   color: black;
   text-decoration: none;
 }
 
-.divCustom{
+.divCustom {
   padding: 12px;
 }
 
-.divCustom button{
-  border: .8px solid #bbb;
-  background-color: #fff;
-  border-radius: 16px;
-  padding: 14px;
-}
 
 @media (max-width: 780px) {
   .textoHome {
@@ -355,5 +403,16 @@ button {
   .objetivosApp {
     width: 100%;
     margin-bottom: 35px;
+  }
+
+  .divAddExercise{
+    
+  }
+}
+
+@media (max-width: 500px) {
+  .buttonsEjercicios {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
 }
