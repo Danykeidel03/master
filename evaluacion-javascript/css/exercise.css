@@ -36,7 +36,8 @@
     width: calc(100%);
 }
 
-.endExerciseButton {
+.endExerciseButton,
+.finalizarRutina {
     width: 30%;
     border: 1px solid black;
     padding: 12px;
@@ -44,6 +45,62 @@
     background-color: #daf7a6;
 }
 
-.endExerciseButton:hover{
+.finalizarRutina{
+    margin-left: 16px;
+}
+
+.endExerciseButton:hover {
     cursor: pointer;
+}
+
+.divEjerciciosHechos,
+.divEjerciciosRestantes {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding-left: 16px;
+}
+
+.divEjerciciosRestantes .ejercicio-individual-general{
+    gap: 15px;
+}
+
+.modal-containerFinalizarDia {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+.divEjerciciosHechos div,
+.divEjerciciosRestantes div {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.modal-containerFinalizarDia .divContainerFalta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divEjerciciosHechos div .ejercicio-individual-nombre,
+.divEjerciciosRestantes div .ejercicio-individual-nombre {
+    font-size: 16px
+}
+
+.divEjerciciosHechos div .ejercicio-individual-foto,
+.divEjerciciosRestantes div .ejercicio-individual-foto,
+.divEjerciciosHechos div .endExerciseButton {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

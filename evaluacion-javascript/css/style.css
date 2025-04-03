@@ -15,7 +15,10 @@ h1,
 h2,
 h3,
 li,
-button {
+button,
+div,
+span,
+li {
   font-family: sans-serif;
 }
 
@@ -66,7 +69,7 @@ button {
   height: calc(100% - 123px);
   background-color: #e8e8e8;
   position: fixed;
-  top: 101px;
+  top: 99px;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -123,6 +126,7 @@ button {
 .divGestionarTareas ul li p {
   margin: 0;
   padding-left: 25px;
+  margin-top: 3px;
 }
 
 .divGestionarTareas ul li::after {
@@ -191,12 +195,14 @@ button {
 }
 
 .modalAddTarea,
-.modalAddCustomExercise {
+.modalAddCustomExercise,
+.modalFinalizarDia {
   display: none;
 }
 
 .modalAddTarea.active,
-.modalAddCustomExercise.active {
+.modalAddCustomExercise.active,
+.modalFinalizarDia.active {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -211,7 +217,8 @@ button {
 }
 
 .overlayModalAddTarea,
-.overlayModalExercise {
+.overlayModalExercise,
+.overlayModalFinalizarDia {
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -220,7 +227,8 @@ button {
 }
 
 .modal-containerAddTarea,
-.modal-containerExercise {
+.modal-containerExercise,
+.modal-containerFinalizarDia {
   z-index: 2;
   width: 850px;
   height: auto;
@@ -245,8 +253,14 @@ button {
   padding: 12px;
 }
 
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .modal-closeAddTarea,
-.modal-closeExercise {
+.modal-closeExercise,
+.modal-closeFinalizarDia {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -260,6 +274,7 @@ button {
   height: 20px;
   color: transparent;
 }
+
 
 .modal-containerExercise {
   width: 500px;
@@ -295,25 +310,35 @@ button {
   width: 100%;
 }
 
+.buttonsEjercicios button:hover,
+.divCustom button:hover,
+.divLogout:hover{
+  cursor: pointer;
+}
+
 .divCustom button {
   width: 20%;
 }
 
 .modal-closeAddTarea:hover,
-.modal-closeExercise:hover {
+.modal-closeExercise:hover,
+.modal-closeFinalizarDia:hover {
   cursor: pointer;
 }
 
 .modal-closeAddTarea::before,
 .modal-closeAddTarea::after,
 .modal-closeExercise::before,
-.modal-closeExercise::after {
+.modal-closeExercise::after,
+.modal-closeFinalizarDia::after,
+.modal-closeFinalizarDia::before {
   height: 1px;
   background-color: #333;
 }
 
 .modal-closeAddTarea::after,
-.modal-closeExercise:after {
+.modal-closeExercise:after,
+.modal-closeFinalizarDia::after {
   content: "";
   width: 18px;
   transform: rotate(-45deg);
@@ -322,7 +347,8 @@ button {
 }
 
 .modal-closeAddTarea::before,
-.modal-closeExercise::before {
+.modal-closeExercise::before,
+.modal-closeFinalizarDia::before {
   content: "";
   width: 18px;
   transform: rotate(45deg);

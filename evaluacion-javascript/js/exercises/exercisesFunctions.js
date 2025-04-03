@@ -29,11 +29,24 @@ export function toAddExercise() {
     modal.openCloseModal(btnAbrirAdd, closeButtonAdd, overlayAdd, ventanaAdd)
 }
 
-export function toAddExerciseCustom(){
+export function customExercise() {
+    const btnAbrirAddCustom = document.querySelector('.buttonAddCustom')
+    const closeButtonAddCustom = document.querySelector('.modal-closeExercise')
+    const overlayAddCustom = document.querySelector('.overlayModalExercise')
+    const ventanaAddCustom = document.querySelector('.modalAddCustomExercise')
+
+    modal.openCloseModal(btnAbrirAddCustom, closeButtonAddCustom, overlayAddCustom, ventanaAddCustom)
+    document.querySelector('.addCustomExercise').addEventListener('click', function () {
+        toAddExerciseCustom()
+        ventanaAddCustom.classList.contains('active') ? ventanaAddCustom.classList.remove('active') : ventanaAddCustom.classList.add('active')
+    })
+}
+
+function toAddExerciseCustom() {
     //hacer funcion sacar ejercicios
     const nombreExercise = document.querySelector('.nombreEjercicio').value
     const urlExercise = document.querySelector('.urlEjercicio').value
-    addExercise(nombreExercise,urlExercise)
+    addExercise(nombreExercise, urlExercise)
 }
 
 function seeExercises(id) {
@@ -141,11 +154,14 @@ function addExercise(infoName, infoGif) {
         arrayObjExercises
     ];
     localStorage.setItem(`ejercicios-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjercicios))
+    window.location.reload();
 }
 
-export function showExercises(divContainer) {
-    if (localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)) {
-        let exercises = JSON.parse(localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`));
+export function showExercises(divContainer, hechos) {
+    let storageValue = '';
+    hechos ? storageValue = localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`) : storageValue = localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)
+    if (storageValue) {
+        let exercises = JSON.parse(storageValue);
         exercises[1].forEach(element => {
             const containerExercises = createNewElement.createNewElement('div', 'ejercicio', '')
             const exerciseContainer = createNewElement.createNewElement('div', 'ejercicio-individual-general', '')
@@ -182,11 +198,12 @@ function endExercise(nombre) {
         sessionStorage.getItem('dataUser'),
         arrayObjExercises
     ];
-    
+
     const objEjerciciosFinalizados = [
         sessionStorage.getItem('dataUser'),
         arrayObjExercisesEnded
     ];
     localStorage.setItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjerciciosFinalizados))
     localStorage.setItem(`ejercicios-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjercicios))
+    window.location.reload();
 }
