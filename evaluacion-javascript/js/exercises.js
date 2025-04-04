@@ -6,6 +6,7 @@ import * as exercises from "./exercises/exercisesFunctions.js";
 import * as openCloseMenu from "./dom/openCloseMenu.js";
 import * as user from "./user/userFunctions.js";
 import * as modal from "./dom/openModal.js";
+import * as createNewElement from "./dom/createElement.js";
 
 
 user.lookUser()
@@ -24,3 +25,18 @@ const windowEnd = document.querySelector('.modalFinalizarDia')
 
 const buttonEnd = document.querySelector('.finalizarDia')
 modal.openCloseModal(buttonEnd, closeButtonEnd, overlayEnd, windowEnd)
+
+document.querySelector('.finalizarRutina').addEventListener('click', () => {
+    const finalMessage = exercises.endRouine()
+    console.log(finalMessage);
+})
+
+let totalExercises = document.querySelectorAll('.divEjercicios .ejercicio')
+const noExercises = createNewElement.createNewElement('h2', 'noExercises', 'No tienes ejercicios pendientes')
+if(totalExercises.length == 0){
+    document.querySelector('.divEjercicios').appendChild(noExercises)
+    document.querySelector('.divEjercicios').classList.add('empty')
+}else{
+    noExercises.remove()
+    document.querySelector('.divEjercicios').classList.remove('empty')
+}

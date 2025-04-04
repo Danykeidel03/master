@@ -61,7 +61,17 @@ li {
 }
 
 .menu-content {
-  display: none;
+  opacity: 0;
+  transition: all .5s ease-in-out;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: auto;
+  background-color: rgba(0,0,0,0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .menu-content.active {
@@ -71,10 +81,11 @@ li {
   position: fixed;
   top: 99px;
   left: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  opacity: 1;
   padding: 12px;
+  transition: all .5s ease-in-out;
+  left: 0;
+  right: 0;
 }
 
 .divLogout {
@@ -318,6 +329,7 @@ li {
 
 .divCustom button {
   width: 20%;
+  min-width: 120px;
 }
 
 .modal-closeAddTarea:hover,
@@ -418,6 +430,23 @@ li {
   padding: 12px;
 }
 
+.overlayLoad {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gifLoad {
+  max-width: 200px;
+}
 
 @media (max-width: 780px) {
   .textoHome {
@@ -431,8 +460,35 @@ li {
     margin-bottom: 35px;
   }
 
-  .divAddExercise{
-    
+  .imgPhotoExercise {
+    max-height: 150px;
+  }
+
+  .divContentExercise .nameExercise{
+    font-size: 16px;
+  }
+
+  .nameInstructions{
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .divContentExercise .nameExercise{
+    font-size: 14px;
+  }
+
+  .nameInstructions{
+    font-size: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .addButton{
+    margin: 0;
+    padding: 6px 12px 6px 12px;
   }
 }
 
@@ -440,5 +496,15 @@ li {
   .buttonsEjercicios {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+  }
+
+  .divAddEjercicios{
+    max-height: calc(100% - 300px);
+  }
+}
+
+@media (max-width: 400px) {
+  .imgPhotoExercise {
+    max-height: 100px;
   }
 }

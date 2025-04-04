@@ -5,6 +5,12 @@
 import * as modal from "../dom/openModal.js";
 import * as createNewElement from "../dom/createElement.js";
 
+let overlayLoad = createNewElement.createNewElement('div', 'overlayLoad', '')
+let gifLoad = createNewElement.createNewElement('img', 'gifLoad', '')
+gifLoad.setAttribute('src', 'images/load.gif')
+gifLoad.setAttribute('alt', 'gif-load')
+overlayLoad.appendChild(gifLoad)
+
 export function toAddExercise() {
     const buttonEspalda = document.querySelector('.ejercicioEspalda')
     const buttonPecho = document.querySelector('.ejercicioPecho')
@@ -42,6 +48,19 @@ export function customExercise() {
     })
 }
 
+export function endRouine() {
+    const ejerciciosFinalizados = JSON.parse(localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`));
+    const ejercicios = JSON.parse(localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`));
+
+    const ejerciciosTotales = ejerciciosFinalizados[1].length + ejercicios[1].length
+    const ejerciciosAcabados = ejerciciosFinalizados[1].length
+
+    localStorage.removeItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`)
+    localStorage.removeItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)
+
+    return `Has completado ${ejerciciosAcabados} de ${ejerciciosTotales} ejercicios`
+}
+
 function toAddExerciseCustom() {
     //hacer funcion sacar ejercicios
     const nombreExercise = document.querySelector('.nombreEjercicio').value
@@ -50,6 +69,7 @@ function toAddExerciseCustom() {
 }
 
 function seeExercises(id) {
+    document.querySelector('body').appendChild(overlayLoad)
     getExerciseds(id).then(data => data.forEach(element => {
         let objEjercicio = {
             nombre: element.name,
@@ -91,6 +111,7 @@ function printExercises(ejercicio, gif) {
     divPrincipalAddExercise.appendChild(divContentAddExerciseDiv)
 
     divExercises.appendChild(divPrincipalAddExercise)
+    overlayLoad.remove()
 }
 
 async function getExerciseds(partBody) {
@@ -207,3 +228,4 @@ function endExercise(nombre) {
     localStorage.setItem(`ejercicios-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjercicios))
     window.location.reload();
 }
+
