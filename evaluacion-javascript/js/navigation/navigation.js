@@ -2,6 +2,9 @@
  * SCRIPT PARA LA NAVEGACION Y EL TIEMPO
  */
 
+import * as createNewElement from "../dom/createElement.js";
+const divCustom = document.querySelector('.divCustom')
+
 export function coordsUser() {
   navigator.geolocation.getCurrentPosition(function (position) {
     const lat = position.coords.latitude;
@@ -11,7 +14,7 @@ export function coordsUser() {
     )
       .then((res) => res.json())
       .then((data) => {
-        const city = data.address.city;
+        const city = data.address.province;
         knowClimate(city);
       });
   });
@@ -49,6 +52,7 @@ async function getClimateProv(codProv, city) {
     const data = await response.json();
     const result = JSON.parse(data.contents);
     const cities = result.ciudades.filter(c => c.name === city);
+    console.log(cities[0]);
     const max = cities[0].temperatures.max;
     const min = cities[0].temperatures.min;
     const description = cities[0].stateSky.description;
