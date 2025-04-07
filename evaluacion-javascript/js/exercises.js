@@ -7,8 +7,10 @@ import * as openCloseMenu from "./dom/openCloseMenu.js";
 import * as user from "./user/userFunctions.js";
 import * as modal from "./dom/openModal.js";
 import * as createNewElement from "./dom/createElement.js";
+import * as navigation from "./navigation/navigation.js";
 
 
+navigation.coordsUser()
 user.lookUser()
 user.addName()
 user.logOut()
