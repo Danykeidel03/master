@@ -1,7 +1,9 @@
 const express = require('express')
+const cookieParser = require('cookie-parser');
 const app = express()
 const userRoutes = require('./routes/userRouter')
 const userProducts = require('./routes/userProducts')
+const userRegister = require('./routes/userRegister')
 const cors = require('cors') 
 const nokMiddleware = require('./middlewares/nokMiddleware');
 const nextMiddleware = require('./middlewares/nextMiddleware');
@@ -21,6 +23,7 @@ app.use(express.json())
 app.use(cors())
 app.use(helmet())
 app.use(mongoSanitize())
+app.use(cookieParser()); // Sin necesidad de clave secreta a menos que uses cookies firmadas
 
 const apiLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -36,6 +39,8 @@ app.use('/users', userRoutes)
 
 //crud con products
 app.use('/products', userProducts)
+
+app.use('/register', userRegister)
 
 app.use('/users',(req, res) => {
     res.send('Respuesta final')

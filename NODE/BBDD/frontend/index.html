@@ -1,49 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Login</title>
 </head>
 <body>
-    <main class="main">
-        <h1>CRUD con ususarios y el back</h1>
-        <div class="divButtons">
-            <button class="verProductos">Ver Productos</button>
-            <button class="addProductos">Añadir Productos</button>
-            <button class="deleteProductos">Delete Productos</button>
-        </div>
-        <div class="divListadoUsers"></div>
-    </main>
-    <div class="modalWrapper">
-        <div class="modalAddProduct">
-            <div class="overlayModalAddProductos"></div>
-                <div class="modal-containerAddProductos">
-                    <button class="modal-closeAddProductos">X</button>
-                    <div class="formAddProduct">
-                        <h2>Añadir Producto</h2>
-                        <div class="divForm">
-                        <input type="text" class="input-field" name="nombre" id="nombre" placeholder="Nombre">
-                        <input type="text" class="input-field" name="descripcion" id="descripcion" placeholder="Descripción">
-                        <input type="number" class="input-field" name="precio" id="precio" placeholder="Precio">
-                        <input type="number" class="input-field" name="stock" id="stock" placeholder="Stock">
-                        <input type="text" class="input-field" name="categoria" id="categoria" placeholder="Categoría">
-                        <input type="text" class="input-field" name="marca" id="marca" placeholder="Marca">
-                        <input type="text" class="input-field" name="codigoProducto" id="codigoProducto" placeholder="Código de Producto">
-                        <input type="date" class="input-field" name="fechaFabricacion" id="fechaFabricacion" placeholder="Fecha de Fabricación">
-                        <input type="number" class="input-field" name="garantiaMeses" id="garantiaMeses" placeholder="Garantía (meses)">
-                        <input type="number" class="input-field" name="peso" id="peso" placeholder="Peso">
-                        <input type="text" class="input-field" name="dimensiones" id="dimensiones" placeholder="Dimensiones">
-                        <input type="number" class="input-field" name="alto" id="alto" placeholder="Alto">
-                        <input type="number" class="input-field" name="ancho" id="ancho" placeholder="Ancho">
-                        <input type="number" class="input-field" name="profundidad" id="profundidad" placeholder="Profundidad">
-                        </div>
-                        <button class="btnAddProduct">Añadir Producto</button>
-                    </div>
+    <main>
+        <div class="overlayLogin"></div>
+        <div class="modalLogin">
+            <h1 class="title-login">Bienvenido!</h1>
+            <div class="form-login">
+                <div class="inputs-login">
+                    <input type="text" name="user" id="user" class="user">
+                    <input type="password" name="passUser" id="passUser" class="passUser">
                 </div>
+                <button class="btn-login">Iniciar Sesion</button>
+                <button class="btn-register">Registrar User</button>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
-<script type="module" src="js/index.js"></script>
+<script type="module" src="js/login.js"></script>
 </html>

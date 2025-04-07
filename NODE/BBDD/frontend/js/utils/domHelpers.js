@@ -20,18 +20,26 @@ export function addToDom(contenedor, product){
     const id = product._id;
 
     const newHTML = `
-        <div class="product-container">
+        <div class="product-container" id="product-${id}">
             <div class="product-name">Nombre: ${nombre}</div>
             <div class="product-price">Precio: ${precio}</div>
             <div class="product-code">Código: ${cod}</div>
-            <button id="${id}" class="product-button-delete-${id}">Eliminar</button>
+            <button class="product-button-delete">Eliminar</button>
         </div>
     `;  
     
-    document.querySelector(contenedor).innerHTML += newHTML;
+    const container = document.querySelector(contenedor);
+    container.insertAdjacentHTML('beforeend', newHTML);
 
-    document.querySelector(`.product-button-delete-${id}`).addEventListener('click', function() {
-        const resultDeleteProduct = apiConfig.doFetch(`http://localhost:3000/products/${id}`,'DELETE')
-        resultDeleteProduct.then(result => console.log(result))
+    const currentProduct = document.querySelector(`#product-${id}`);
+    const deleteButton = currentProduct.querySelector('.product-button-delete');
+
+    deleteButton.addEventListener('click', function() {
+        const resultDeleteProduct = apiConfig.doFetch(`http://localhost:3000/products/${id}`, 'DELETE');
+        resultDeleteProduct.then(result => {
+            console.log(result);
+            alert(`Producto eliminado: ${result.id}`)
+            currentProduct.remove(); // Eliminar del DOM después de borrarlo del backend
+        });
     });
 }

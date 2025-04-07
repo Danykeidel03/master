@@ -66,20 +66,18 @@ async function updateProduct(id, userData) {
 }
 
 async function deleteProduct(id) {
-  try {      
-      const product = await Product.findByIdAndDelete(id)
+    try {      
+      const product = await Product.findByIdAndDelete(id);
       if (!product) {
-          throw new Error('product no encontrado');
+        throw new Error('Producto no encontrado');
       }
-
-      console.log('product actualizado:', product);
+  
       return product;
-  } catch (err) {
-      console.error('Error al actualizar product:', err);
+    } catch (err) {
+      console.error('Error al eliminar producto:', err);
       throw err;
+    }
   }
-}
 
 
 module.exports = { insertProduct, getProducts, updateProduct, deleteProduct };
-updateProduct

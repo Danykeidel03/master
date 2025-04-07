@@ -71,17 +71,20 @@ const productController = {
   ],
 
   deleteProduct: [
-    async (req, response) => {
+    async (req, res) => {
       try {
         const { id } = req.params;
-        const updatedUser = await deleteProduct(id);
-        response.status(204).json(updatedUser);
+        const deletedProduct = await deleteProduct(id);
+  
+        // Devuelve el ID del producto eliminado
+        res.status(200).json({ id: deletedProduct._id });
       } catch (e) {
-        console.log("Error al actualizar usuario", e);
-        response.status(500).json({ error: "Error al actualizar usuario" });
+        console.error("Error al eliminar producto", e);
+        res.status(500).json({ error: "Error al eliminar producto" });
       }
     },
   ],
+  
 };
 
 module.exports = productController;

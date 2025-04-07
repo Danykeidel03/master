@@ -11,7 +11,7 @@ export async function doFetch(url, type, bodyLlamada){
         options = {
             method: type,
             headers: {"Content-Type": "application/json"},
-            body: bodyLlamada
+            body: bodyLlamada,
         };
     }else{
         options = {
