@@ -19,8 +19,13 @@ const rateLimit = require('express-rate-limit')
 const mongoSanitize = require('express-mongo-sanitize')
 
 //Parsear de forma automatica en JSON
-app.use(express.json())
-app.use(cors())
+app.use(
+    cors({
+      origin: 'http://localhost:8888',
+      credentials: true,
+    })
+  );
+app.use(express.json()) 
 app.use(helmet())
 app.use(mongoSanitize())
 app.use(cookieParser()); // Sin necesidad de clave secreta a menos que uses cookies firmadas

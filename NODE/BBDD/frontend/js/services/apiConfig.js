@@ -12,11 +12,13 @@ export async function doFetch(url, type, bodyLlamada){
             method: type,
             headers: {"Content-Type": "application/json"},
             body: bodyLlamada,
+            credentials: 'include'
         };
     }else{
         options = {
             method: type,
-            headers: {"Content-Type": "application/json"}
+            headers: {"Content-Type": "application/json"},
+            credentials: 'include'
         }
     }
     try {

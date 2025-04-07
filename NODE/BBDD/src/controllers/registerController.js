@@ -32,9 +32,11 @@ const registerController = {
                 res.cookie('token', token, {
                     httpOnly: true,
                     secure: false,
-                    sameSite: 'strict',
-                    maxAge: 3600000 // 1 hora
+                    sameSite: 'Lax',
+                    maxAge: 3600000,
+                    path: '/'
                 }); 
+                console.log('Cookies metidas');
 
                 res.status(200).json({
                     message: 'Login exitoso',
