@@ -68,7 +68,7 @@ li {
   bottom: 0;
   left: -100%;
   right: auto;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -323,7 +323,7 @@ li {
 
 .buttonsEjercicios button:hover,
 .divCustom button:hover,
-.divLogout:hover{
+.divLogout:hover {
   cursor: pointer;
 }
 
@@ -448,6 +448,18 @@ li {
   max-width: 200px;
 }
 
+.divCustom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divCustom .climate {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+}
+
 @media (max-width: 780px) {
   .textoHome {
     flex-direction: column;
@@ -464,29 +476,29 @@ li {
     max-height: 150px;
   }
 
-  .divContentExercise .nameExercise{
+  .divContentExercise .nameExercise {
     font-size: 16px;
   }
 
-  .nameInstructions{
+  .nameInstructions {
     font-size: 12px;
   }
 }
 
 @media (max-width: 600px) {
 
-  .divContentExercise .nameExercise{
+  .divContentExercise .nameExercise {
     font-size: 14px;
   }
 
-  .nameInstructions{
+  .nameInstructions {
     font-size: 10px;
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
 
-  .addButton{
+  .addButton {
     margin: 0;
     padding: 6px 12px 6px 12px;
   }
@@ -498,7 +510,7 @@ li {
     grid-template-rows: repeat(3, 1fr);
   }
 
-  .divAddEjercicios{
+  .divAddEjercicios {
     max-height: calc(100% - 300px);
   }
 }

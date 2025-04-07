@@ -57,6 +57,14 @@ async function getClimateProv(codProv, city) {
     const min = cities[0].temperatures.min;
     const description = cities[0].stateSky.description;
     console.log(max,min,description);
+    const divContainerClimate = createNewElement.createNewElement('div', 'climate', '')
+    const divContainerClimateMax = createNewElement.createNewElement('div', 'climateMax', `${max} °C`)
+    const divContainerClimateMin = createNewElement.createNewElement('div', 'climateMin', `${min} °C`)
+    const divContainerClimateDescription = createNewElement.createNewElement('div', 'climateDescription', `${city}: ${description}`)
+    divContainerClimate.appendChild(divContainerClimateMax);
+    divContainerClimate.appendChild(divContainerClimateMin);
+    divContainerClimate.appendChild(divContainerClimateDescription);
+    divCustom.appendChild(divContainerClimate);
   } catch (error) {
     console.error(error);
   }
