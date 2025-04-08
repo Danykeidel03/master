@@ -8,6 +8,8 @@ const cors = require('cors')
 const nokMiddleware = require('./middlewares/nokMiddleware');
 const nextMiddleware = require('./middlewares/nextMiddleware');
 const errorMiddleware = require('./middlewares/errorMiddleware');
+const authMiddleware = require('./middlewares/authMiddleware');
+
 const helmet = require('helmet')
 //proteccion con limite de peticiones por ip
 const rateLimit = require('express-rate-limit')
@@ -43,7 +45,7 @@ app.use('/', apiLimiter)
 app.use('/users', userRoutes)
 
 //crud con products
-app.use('/products', userProducts)
+//app.use('/products', userProducts)
 
 app.use('/register', userRegister)
 
@@ -51,7 +53,11 @@ app.use('/users',(req, res) => {
     res.send('Respuesta final')
 })
 
+// Uso en rutas protegidas
+app.use('/products', authMiddleware, userProducts);
+
 app.use(errorMiddleware)
 app.use(nokMiddleware)
+
 
 module.exports = app

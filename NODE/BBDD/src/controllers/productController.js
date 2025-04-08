@@ -47,6 +47,7 @@ const productController = {
     },
   ],
   getProduct: [
+    
     async (req, response) => {
       try {
         const data = await getProducts();
