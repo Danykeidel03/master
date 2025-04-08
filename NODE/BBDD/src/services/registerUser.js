@@ -1,9 +1,13 @@
 const UserRegister = require('../models/UserRegister')
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+
 
 async function resgiterUser(nombre, pass) {
     try {
-        const user = new UserRegister({ nombre, pass })
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(pass, salt);
+        const user = new UserRegister({ nombre, pass: hashedPassword })
         const res = await user.save()
         console.log('User registrado', res);
         return res;
@@ -20,7 +24,7 @@ async function loginUser(nombre, pass) {
         }
 
         // Aquí deberías comparar la contraseña
-        const isMatch = user.pass === pass; // En un caso real deberías usar bcrypt
+        const isMatch = await bcrypt.compare(pass, user.pass);
         if (!isMatch) {
             console.log('Contraseña incorrecta');
             return null;

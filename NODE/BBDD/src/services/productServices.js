@@ -34,6 +34,8 @@ async function insertProduct(nombre, descripcion, precio, stock, categoria, marc
 async function getProducts(){
     try{
         const products = await Product.find()
+        // obtienes los de nombre === 2
+        // const products = await Product.find({ nombre: { $eq: 2 } })
         console.log('Usuarios:', products);
         return products
     }catch(e){
