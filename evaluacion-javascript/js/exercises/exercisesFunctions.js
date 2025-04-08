@@ -61,6 +61,29 @@ export function endRouine() {
     return `Has completado ${ejerciciosAcabados} de ${ejerciciosTotales} ejercicios`
 }
 
+export function showExercises(divContainer, hechos) {
+    let storageValue = '';
+    hechos ? storageValue = localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`) : storageValue = localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)
+    if (storageValue) {
+        let exercises = JSON.parse(storageValue);
+        exercises[1].forEach(element => {
+            const containerExercises = createNewElement.createNewElement('div', 'ejercicio', '')
+            const exerciseContainer = createNewElement.createNewElement('div', 'ejercicio-individual-general', '')
+            const exerciseName = createNewElement.createNewElement('div', 'ejercicio-individual-nombre', element.nombreEjercicio)
+            const exerciseFoto = createNewElement.createNewElement('img', 'ejercicio-individual-foto', '')
+            exerciseFoto.setAttribute('src', element.giftEjercicio)
+            exerciseFoto.setAttribute('alt', 'gif-exercise')
+            const buttonAdd = createNewElement.createNewElement('button', 'endExerciseButton', 'Finalizar')
+            buttonAdd.onclick = () => endExercise(element.nombreEjercicio)
+            exerciseContainer.appendChild(buttonAdd)
+            exerciseContainer.appendChild(exerciseName)
+            containerExercises.appendChild(exerciseContainer)
+            containerExercises.appendChild(exerciseFoto)
+            divContainer.appendChild(containerExercises)
+        });
+    }
+}
+
 function toAddExerciseCustom() {
     //hacer funcion sacar ejercicios
     const nombreExercise = document.querySelector('.nombreEjercicio').value
@@ -176,29 +199,6 @@ function addExercise(infoName, infoGif) {
     ];
     localStorage.setItem(`ejercicios-${sessionStorage.getItem('dataUser')}`, JSON.stringify(objEjercicios))
     window.location.reload();
-}
-
-export function showExercises(divContainer, hechos) {
-    let storageValue = '';
-    hechos ? storageValue = localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`) : storageValue = localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)
-    if (storageValue) {
-        let exercises = JSON.parse(storageValue);
-        exercises[1].forEach(element => {
-            const containerExercises = createNewElement.createNewElement('div', 'ejercicio', '')
-            const exerciseContainer = createNewElement.createNewElement('div', 'ejercicio-individual-general', '')
-            const exerciseName = createNewElement.createNewElement('div', 'ejercicio-individual-nombre', element.nombreEjercicio)
-            const exerciseFoto = createNewElement.createNewElement('img', 'ejercicio-individual-foto', '')
-            exerciseFoto.setAttribute('src', element.giftEjercicio)
-            exerciseFoto.setAttribute('alt', 'gif-exercise')
-            const buttonAdd = createNewElement.createNewElement('button', 'endExerciseButton', 'Finalizar')
-            buttonAdd.onclick = () => endExercise(element.nombreEjercicio)
-            exerciseContainer.appendChild(buttonAdd)
-            exerciseContainer.appendChild(exerciseName)
-            containerExercises.appendChild(exerciseContainer)
-            containerExercises.appendChild(exerciseFoto)
-            divContainer.appendChild(containerExercises)
-        });
-    }
 }
 
 function endExercise(nombre) {

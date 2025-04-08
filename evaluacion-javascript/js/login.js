@@ -5,7 +5,7 @@
     VALIDA FORMULARIO
 */
 
-import * as error from "./error.js";
+import * as error from "./dom/error.js";
 
 let buttonLogin = document.querySelector('.btn-login')
 

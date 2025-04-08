@@ -1,3 +1,7 @@
+/**
+ * SCRIPT PARA EL MANEJO DE ERRORES
+ */
+
 export function returnError(message, elementBefore, container) {
     let divError = document.createElement('div');
     divError.classList.add('divError');
