@@ -15,13 +15,12 @@ export function coordsUser() {
       .then((res) => res.json())
       .then((data) => {
         const city = data.address.province;
-        knowClimate(city);
+        knowClimate(lat,lon, city);
       });
   });
 }
-
-async function knowClimate(city) {
-  const url = `https://api.allorigins.win/get?url=${encodeURIComponent("https://www.el-tiempo.net/api/json/v2/provincias")}`;
+async function knowClimate(lat, lon, city) {
+  const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://wttr.in/${lat},${lon}?format=3`)}`;
   const options = {
     method: "GET",
     headers: {
@@ -31,38 +30,11 @@ async function knowClimate(city) {
   try {
     const response = await fetch(url, options);
     const data = await response.json();
-    const result = JSON.parse(data.contents);
-    const valueProv = result.provincias.filter((prov) => prov.NOMBRE_PROVINCIA === city);
-    getClimateProv(valueProv[0].CODPROV, city);
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-async function getClimateProv(codProv, city) {
-  const url = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://www.el-tiempo.net/api/json/v2/provincias/${codProv}`)}`;
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
-  try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    const result = JSON.parse(data.contents);
-    const cities = result.ciudades.filter(c => c.name === city);
-    console.log(cities[0]);
-    const max = cities[0].temperatures.max;
-    const min = cities[0].temperatures.min;
-    const description = cities[0].stateSky.description;
-    console.log(max,min,description);
+    const content = data.contents.split(':')
     const divContainerClimate = createNewElement.createNewElement('div', 'climate', '')
-    const divContainerClimateMax = createNewElement.createNewElement('div', 'climateMax', `${max} °C`)
-    const divContainerClimateMin = createNewElement.createNewElement('div', 'climateMin', `${min} °C`)
-    const divContainerClimateDescription = createNewElement.createNewElement('div', 'climateDescription', `${city}: ${description}`)
-    divContainerClimate.appendChild(divContainerClimateMax);
-    divContainerClimate.appendChild(divContainerClimateMin);
+    const divContainerClimateCelsius = createNewElement.createNewElement('div', 'climateMax', `${content[1]}`)
+    const divContainerClimateDescription = createNewElement.createNewElement('div', 'climateDescription', `${city}: `)
+    divContainerClimate.appendChild(divContainerClimateCelsius);
     divContainerClimate.appendChild(divContainerClimateDescription);
     divCustom.appendChild(divContainerClimate);
   } catch (error) {
