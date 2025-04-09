@@ -1,7 +1,7 @@
 const secretKey = 'prueba'
 const jwt = require('jsonwebtoken');
 
-module.exports = (req, res, next) => {
+const verificarToken = (req, res, next) => {
     // 1. Obtener token de las cookies
     const token = req.cookies.token;
 
@@ -18,3 +18,12 @@ module.exports = (req, res, next) => {
         next();
     });
 };
+
+const verificarRol = (rolesPermitidos) => (req, res, next) => {
+    if(!req.user || !rolesPermitidos.includes(req.user.role)) {
+        return res.status(403).json({message: 'Sin permiso para acceder a esta acciom'})
+    }
+    next();
+};
+
+module.exports = { verificarRol, verificarToken }

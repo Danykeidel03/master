@@ -4,7 +4,8 @@ const bcrypt = require('bcrypt');
 
 const ususarioSchema = new mongose.Schema({
     nombre: { type: String, required: true, unique: true },
-    pass: { type: String, required: true }
+    pass: { type: String, required: true },
+    role: {type: String, enum: ['usuario', 'admin', 'superadmin'], default: 'usuario', required: true,}
 })
 
 ususarioSchema.pre('save', async function (next) {

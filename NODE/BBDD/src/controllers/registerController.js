@@ -23,12 +23,12 @@ const registerController = {
     loginUser: [
         async (req, res) => {
             try {
-                const { nombre, pass } = req.body;
+                const { nombre, pass, role } = req.body;
     
                 const data = await loginUser(nombre, pass);
                 if (!data) return res.status(401).json({ error: 'Credenciales inválidas' });
     
-                const token = jwt.sign({ userId: data.id }, secretKey, { expiresIn: '1h' });
+                const token = jwt.sign({ userId: data.id, role: role }, secretKey, { expiresIn: '1h' });
                 res.cookie('token', token, {
                     httpOnly: true,
                     secure: false,

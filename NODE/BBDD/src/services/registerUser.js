@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 
-async function resgiterUser(nombre, pass) {
+async function resgiterUser(nombre, pass, role) {
     try {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(pass, salt);
-        const user = new UserRegister({ nombre, pass: hashedPassword })
+        const user = new UserRegister({ nombre, pass: hashedPassword, role: role || 'ususario' })
         const res = await user.save()
         console.log('User registrado', res);
         return res;

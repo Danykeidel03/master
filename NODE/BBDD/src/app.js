@@ -8,7 +8,6 @@ const cors = require('cors')
 const nokMiddleware = require('./middlewares/nokMiddleware');
 const nextMiddleware = require('./middlewares/nextMiddleware');
 const errorMiddleware = require('./middlewares/errorMiddleware');
-const authMiddleware = require('./middlewares/authMiddleware');
 
 const helmet = require('helmet')
 //proteccion con limite de peticiones por ip
@@ -54,7 +53,7 @@ app.use('/users',(req, res) => {
 })
 
 // Uso en rutas protegidas
-app.use('/products', authMiddleware, userProducts);
+app.use('/products', userProducts);
 
 app.use(errorMiddleware)
 app.use(nokMiddleware)
