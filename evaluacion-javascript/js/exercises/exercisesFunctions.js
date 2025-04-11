@@ -4,6 +4,8 @@
 
 import * as modal from "../dom/openModal.js";
 import * as createNewElement from "../dom/createElement.js";
+import * as error from "../dom/error.js";
+
 
 let overlayLoad = createNewElement.createNewElement('div', 'overlayLoad', '')
 let gifLoad = createNewElement.createNewElement('img', 'gifLoad', '')
@@ -52,13 +54,18 @@ export function endRouine() {
     const ejerciciosFinalizados = JSON.parse(localStorage.getItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`));
     const ejercicios = JSON.parse(localStorage.getItem(`ejercicios-${sessionStorage.getItem('dataUser')}`));
 
-    const ejerciciosTotales = ejerciciosFinalizados[1].length + ejercicios[1].length
-    const ejerciciosAcabados = ejerciciosFinalizados[1].length
-
-    localStorage.removeItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`)
-    localStorage.removeItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)
-
-    return `Has completado ${ejerciciosAcabados} de ${ejerciciosTotales} ejercicios`
+    if(ejerciciosFinalizados){
+        const ejerciciosTotales = ejerciciosFinalizados[1].length + ejercicios[1].length
+        const ejerciciosAcabados = ejerciciosFinalizados[1].length
+    
+        localStorage.removeItem(`ejerciciosFinalizados-${sessionStorage.getItem('dataUser')}`)
+        localStorage.removeItem(`ejercicios-${sessionStorage.getItem('dataUser')}`)
+    
+        window.location.reload();
+        return `Has completado ${ejerciciosAcabados} de ${ejerciciosTotales} ejercicios`
+    }else{
+        error.returnError('No has completado Ningun ejercicio', document.querySelector('.finalizarRutina'), document.querySelector('.modal-containerFinalizarDia'))
+    }
 }
 
 export function showExercises(divContainer, hechos) {
@@ -93,6 +100,7 @@ function toAddExerciseCustom() {
 
 function seeExercises(id) {
     document.querySelector('body').appendChild(overlayLoad)
+    document.querySelector('.divAddEjercicios').textContent = ''
     getExerciseds(id).then(data => data.forEach(element => {
         let objEjercicio = {
             nombre: element.name,
@@ -138,7 +146,7 @@ function printExercises(ejercicio, gif) {
 }
 
 async function getExerciseds(partBody) {
-    const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${partBody}?limit=1&offset=0`;
+    const url = `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${partBody}?limit=10&offset=0`;
     const options = {
         method: 'GET',
         headers: {
