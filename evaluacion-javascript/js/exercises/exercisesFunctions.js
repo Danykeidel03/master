@@ -95,7 +95,15 @@ function toAddExerciseCustom() {
     //hacer funcion sacar ejercicios
     const nombreExercise = document.querySelector('.nombreEjercicio').value
     const urlExercise = document.querySelector('.urlEjercicio').value
-    addExercise(nombreExercise, urlExercise)
+    if(nombreExercise && urlExercise){
+        if(urlExercise.includes('.png') || urlExercise.includes('.jpg') || urlExercise.includes('.gif')){
+            addExercise(nombreExercise, urlExercise)
+        }else{
+            error.returnError('Solo puedes poner un PNG, JPG o Gif', document.querySelector('.divCustom'), document.querySelector('.modal-containerAddTarea'))
+        }
+    }else{
+        error.returnError('Debes poner un nombre y una imagen', document.querySelector('.divCustom'), document.querySelector('.modal-containerAddTarea'))
+    }
 }
 
 function seeExercises(id) {
