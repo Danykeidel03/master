@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/exercise.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header__logo-container">
+                <a title="Inicio" href="main.html" aria-label="Inicio">
+                    <img src="images/logo.png" alt="Logo" class="header__logo" width="48px" height="48px">
+                </a>
+                <div class="accordionMenu">
+                    <img src="images/hamburgerMenu.png" alt="Hamburger Menu">
+                </div>
+            </div>
+            <div class="bienvenidoUser"></div>
+        </div>
+    </header>
+    <main>
+        <div class="menu-content">
+            <div class="divGestionarTareas">
+                <ul>
+                    <li><p><a href="exercises.html">Ver Tareas</a></p></li>
+                    <li class="addTarea"><p>Añadir Tarea</p></li>
+                </ul>
+            </div>
+            <div class="divLogout">
+                <button>Cerrar Sesion</button>
+            </div>
+        </div>
+        <div class="main-content">
+            <h1>Tus Ejercicios</h1>
+            <div class="divEjercicios">
+
+            </div>
+            <div class="divFinalizarRutina">
+                <button class="finalizarDia">Finalizar Dia</button>
+            </div>
+        </div>
+        <div class="modal-wrapper">
+            <div class="modalAddTarea">
+                <div class="overlayModalAddTarea"></div>
+                <div class="modal-containerAddTarea">
+                    <button class="modal-closeAddTarea">X</button>
+                    <div class="opcionesDeEjercicios">
+                        <h2>Opciones</h2>
+                        <div class="buttonsEjercicios">
+                            <button class="ejercicioEspalda" id="back">Espalda</button>
+                            <button class="ejercicioPecho" id="chest">Pecho</button>
+                            <button class="ejercicioHombro" id="shoulders">Hombro</button>
+                            <button class="ejercicioPierna" id="upper legs">Pierna</button>
+                            <button class="ejercicioBiceps" id="upper arms">Biceps</button>
+                            <button class="ejercicioCardio" id="cardio">Cardio</button>
+                        </div>
+                    </div>
+                    <div class="divAddEjercicios">
+                        
+                    </div>
+                    <div class="divCustom">
+                        <button class="buttonAddCustom">Añadir Manual</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modalAddCustomExercise">
+                <div class="overlayModalExercise"></div>
+                <div class="modal-containerExercise">
+                    <button class="modal-closeExercise">X</button>
+                    <div class="divForm">
+                        <input type="text" name="nombreEjercicio" id="nombreEjercicio" class="nombreEjercicio" placeholder="Nombre Ejercicio">
+                        <input type="text" name="urlEjercicio" id="urlEjercicio" class="urlEjercicio" placeholder="URL Imagen">
+                        <textarea name="descripcionEjercicio" id="descripcionEjercicio" class="descripcionEjercicio" placeholder="Descripcion Imagen"></textarea>
+                        <button class="addCustomExercise">Añadir Ejercicio</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modalFinalizarDia">
+                <div class="overlayModalFinalizarDia"></div>
+                <div class="modal-containerFinalizarDia">
+                    <button class="modal-closeFinalizarDia">X</button>
+                    <div class="divContainerFalta">
+                        <div class="divEjerciciosHechos">
+                            <h3>Has hecho</h3>
+                            <div></div>
+                        </div>
+                        <div class="divEjerciciosRestantes">
+                            <h3>Te falta por hacer</h3>
+                            <div></div>
+                        </div>
+                    </div>
+                    <button class="finalizarRutina">Finalizar Rutina</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script type="module" src="js/exercises.js"></script>
+</html>

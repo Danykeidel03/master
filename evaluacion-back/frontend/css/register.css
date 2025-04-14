@@ -1,0 +1,35 @@
+.divPersonalInfo,
+.divPass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.divPersonalInfo div,
+.divPass div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.registerForm {
+    height: auto;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 36px;
+}
+
+.divPersonalInfo div input,
+.divPersonalInfo div select,
+.divPass div input {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 12px;
+    width: 90%;
+    max-width: 460px;
+}

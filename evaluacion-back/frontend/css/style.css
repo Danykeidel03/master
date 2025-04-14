@@ -1,0 +1,595 @@
+html,
+body,
+main {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #daf7a6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p,
+h1,
+h2,
+h3,
+li,
+button,
+div,
+span,
+li {
+  font-family: sans-serif;
+}
+
+.divLoginForm,
+.loginDiv{
+  display: none;
+}
+
+.divLoginForm.active,
+.loginDiv.active{
+  display: flex;
+}
+
+.loginDiv.active{
+  position: relative;
+}
+
+.divLoginForm.active {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.divLoginForm.active::after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  border-bottom: 0 solid transparent;
+  border-right: 0 solid transparent;
+  top: -5px;
+  right: 17px;
+  background-color: white;
+}
+
+.divLoginForm.active h3{
+  text-align: center;
+}
+
+.divLoginForm.active .formLogin{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.divLoginForm.active .formLogin .urlRegister{
+  color: black;
+  text-decoration: none;
+  padding-left: 25px;
+}
+
+.divLoginForm.active .formLogin .urlRegister::after {
+  content: "";
+  display: block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  background-image: url("../images/logologin.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 15px;
+  bottom: 13px;
+}
+
+.header__logo {
+  border-radius: 100%;
+  width: 75px;
+  height: auto;
+}
+
+.divError {
+  padding: 8px;
+  background-color: #ffcdd2;
+  color: red;
+  text-align: center;
+}
+
+.header {
+  background-color: #e8e8e8;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 96px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.accordionMenu img,
+.accordionMenu {
+  width: 32px;
+  height: 32px;
+}
+
+.header__logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.menu-content {
+  opacity: 0;
+  transition: all .5s ease-in-out;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: auto;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-content.active {
+  width: 200px;
+  height: calc(100% - 123px);
+  background-color: #e8e8e8;
+  position: fixed;
+  top: 99px;
+  left: 0;
+  opacity: 1;
+  padding: 12px;
+  transition: all .5s ease-in-out;
+  left: 0;
+  right: 0;
+}
+
+.divLogout {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.divLogout button {
+  border: 0;
+  background-color: transparent;
+  position: relative;
+}
+
+.divLogout button::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 1px;
+  bottom: 0;
+  left: -12px;
+  right: 0;
+  background-image: url("../images/logout.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.divGestionarTareas ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-left: 10px;
+  margin: 0;
+  position: relative;
+}
+
+.divGestionarTareas ul li {
+  display: flex;
+  align-items: center;
+}
+
+.divGestionarTareas ul li:hover {
+  cursor: pointer;
+}
+
+.divGestionarTareas ul li p {
+  margin: 0;
+  padding-left: 25px;
+  margin-top: 3px;
+}
+
+.divGestionarTareas ul li::after {
+  content: "";
+  display: block;
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  background-image: url("../images/punto.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-content h1 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.main-content {
+  height: calc(100% - 97px);
+  padding-top: 97px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 90%;
+}
+
+.textoHome,
+.registroDiv {
+  display: flex;
+  gap: 20px;
+  width: 1280px;
+  max-width: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
+.explicacionApp ul,
+.objetivosApp ul {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+  padding-left: 16px;
+}
+
+.explicacionApp,
+.objetivosApp,
+.registerForm {
+  padding: 16px;
+  background-color: white;
+  border-radius: 12px;
+  width: 50%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bienvenidoUser,
+.loginDiv {
+  position: absolute;
+  right: 75px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.modalAddTarea,
+.modalAddCustomExercise,
+.modalFinalizarDia {
+  display: none;
+}
+
+.modalAddTarea.active,
+.modalAddCustomExercise.active,
+.modalFinalizarDia.active {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlayModalAddTarea,
+.overlayModalExercise,
+.overlayModalFinalizarDia {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  background-color: rgba(51, 51, 51, 0.55);
+}
+
+.modal-containerAddTarea,
+.modal-containerExercise,
+.modal-containerFinalizarDia {
+  z-index: 2;
+  width: 850px;
+  height: auto;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 12px;
+  position: relative;
+  padding: 15px;
+  max-height: 500px;
+  max-width: 85%;
+}
+
+.opcionesDeEjercicios h2 {
+  text-align: center;
+}
+
+.buttonsEjercicios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 14px;
+  padding: 12px;
+}
+
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-closeAddTarea,
+.modal-closeExercise,
+.modal-closeFinalizarDia {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+}
+
+
+.modal-containerExercise {
+  width: 500px;
+}
+
+.divForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.divForm input,
+.divForm textarea,
+.finalizarDia,
+.divLoginForm.active .formLogin input {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.divForm button,
+.buttonsEjercicios button,
+.divCustom button,
+.divLoginForm.active .formLogin button {
+  width: 30%;
+  border: 1px solid black;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #daf7a6;
+}
+
+.buttonsEjercicios button {
+  width: 100%;
+}
+
+.buttonsEjercicios button:hover,
+.divCustom button:hover,
+.divLogout:hover {
+  cursor: pointer;
+}
+
+.divCustom button {
+  width: 20%;
+  min-width: 120px;
+}
+
+.modal-closeAddTarea:hover,
+.modal-closeExercise:hover,
+.modal-closeFinalizarDia:hover {
+  cursor: pointer;
+}
+
+.modal-closeAddTarea::before,
+.modal-closeAddTarea::after,
+.modal-closeExercise::before,
+.modal-closeExercise::after,
+.modal-closeFinalizarDia::after,
+.modal-closeFinalizarDia::before {
+  height: 1px;
+  background-color: #333;
+}
+
+.modal-closeAddTarea::after,
+.modal-closeExercise:after,
+.modal-closeFinalizarDia::after {
+  content: "";
+  width: 18px;
+  transform: rotate(-45deg);
+  position: absolute;
+  opacity: 1;
+}
+
+.modal-closeAddTarea::before,
+.modal-closeExercise::before,
+.modal-closeFinalizarDia::before {
+  content: "";
+  width: 18px;
+  transform: rotate(45deg);
+  position: absolute;
+  opacity: 1;
+}
+
+.divAddEjercicios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  max-height: calc(100% - 250px);
+}
+
+.divAddExercise {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+}
+
+.imgPhotoExercise {
+  max-height: 200px;
+  width: auto;
+}
+
+.divContentExercise .nameExercise {
+  text-transform: capitalize;
+  font-size: 24px;
+  font-family: sans-serif;
+}
+
+.divContentExercise {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nameInstructions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+
+.addButton {
+  border: .8px solid #bbb;
+  background-color: #fff;
+  margin: 0 15px;
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.addButton:hover {
+  cursor: pointer;
+}
+
+.divGestionarTareas ul li p a {
+  color: black;
+  text-decoration: none;
+}
+
+.divCustom {
+  padding: 12px;
+}
+
+.overlayLoad {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gifLoad {
+  max-width: 200px;
+}
+
+.divCustom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.divCustom .climate {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 10px;
+  align-items: baseline;
+}
+
+@media (max-width: 780px) {
+  .textoHome {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .explicacionApp,
+  .objetivosApp {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .imgPhotoExercise {
+    max-height: 150px;
+  }
+
+  .divContentExercise .nameExercise {
+    font-size: 16px;
+  }
+
+  .nameInstructions {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .divContentExercise .nameExercise {
+    font-size: 14px;
+  }
+
+  .nameInstructions {
+    font-size: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .addButton {
+    margin: 0;
+    padding: 6px 12px 6px 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .buttonsEjercicios {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .divAddEjercicios {
+    max-height: calc(100% - 300px);
+  }
+}
+
+@media (max-width: 400px) {
+  .imgPhotoExercise {
+    max-height: 100px;
+  }
+}

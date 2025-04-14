@@ -1,0 +1,158 @@
+.ejercicio {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.ejercicio .ejercicio-individual-foto {
+    max-width: 200px;
+    height: auto;
+    border-radius: 12px;
+}
+
+.ejercicio .ejercicio-individual-nombre {
+    text-transform: capitalize;
+    font-size: 24px;
+    font-family: sans-serif;
+    padding-right: 15px;
+}
+
+.divEjercicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.divEjercicios.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ejercicio-individual-general {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    width: calc(100%);
+}
+
+.endExerciseButton,
+.finalizarRutina {
+    width: 30%;
+    border: 1px solid black;
+    padding: 12px;
+    border-radius: 12px;
+    background-color: #daf7a6;
+    min-width: 100px;
+}
+
+.finalizarRutina {
+    margin-left: 16px;
+    min-width: 125px;
+}
+
+.endExerciseButton:hover {
+    cursor: pointer;
+}
+
+.divEjerciciosHechos,
+.divEjerciciosRestantes {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    padding-left: 16px;
+}
+
+.divEjerciciosRestantes .ejercicio-individual-general {
+    gap: 15px;
+}
+
+.modal-containerFinalizarDia {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.divEjerciciosHechos div,
+.divEjerciciosRestantes div {
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.modal-containerFinalizarDia .divContainerFalta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divEjerciciosHechos div .ejercicio-individual-nombre,
+.divEjerciciosRestantes div .ejercicio-individual-nombre {
+    font-size: 16px
+}
+
+.divEjerciciosHechos div .ejercicio-individual-foto,
+.divEjerciciosRestantes div .ejercicio-individual-foto,
+.divEjerciciosHechos div .endExerciseButton {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media(max-width: 980px) {
+    .ejercicio .ejercicio-individual-nombre {
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 850px) {
+    .ejercicio .ejercicio-individual-foto {
+        max-width: 150px;
+    }
+}
+
+@media(max-width: 767px) {
+    .endExerciseButton{
+        padding: 6px;
+    }
+    .divEjerciciosRestantes div .ejercicio-individual-nombre,
+    .divEjerciciosHechos div .ejercicio-individual-nombre{
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 670px) {
+    .divEjercicios {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .ejercicio .ejercicio-individual-nombre {
+        font-size: 24px;
+    }
+}
+
+@media(max-width: 450px) {
+    .ejercicio .ejercicio-individual-nombre {
+        font-size: 16px;
+    }
+}
