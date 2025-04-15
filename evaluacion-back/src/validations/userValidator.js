@@ -23,10 +23,6 @@ const createUserValidators = [
     .notEmpty().withMessage('El rol es obligatorio')
     .isString().withMessage('El rol debe ser un texto'),
 
-  body('photo')
-    .notEmpty().withMessage('La foto es obligatoria')
-    .isString().withMessage('La foto debe ser un texto'),
-
   body("weight")
     .notEmpty()
     .withMessage("El peso es obligatorio")

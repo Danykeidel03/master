@@ -1,12 +1,36 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt');
-
+const fs = require('fs').promises;
+const path = require('path');
+const uploadDir = path.join(__dirname, '../../uploads');
 
 async function resgiterUser(name, mail, pass, role, photo, weight, height, activity) {
     try {
+
+        if(!photo || photo.originalName || !photo.buffer){
+            return ('Foto no valida')
+        }
+
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(pass, salt);
-        const user = new User({ name, mail, pass: hashedPassword, role: role || 'ususario', photo, weight, height, activity })
+
+        const photoName = photo.originalName;
+        const filePath = path.join(uploadDir, photoName)
+
+        //Verifico que existe el directorio, si no, lo creo
+        await fs.mkdir(uploadDir, { recursive: true })
+        await fs.writeFile(filePath, photo.buffer)
+
+        const user = new User({
+            name,
+            mail,
+            pass: hashedPassword,
+            role: role || 'ususario',
+            photoName,
+            weight,
+            height,
+            activity
+        })
         const res = await user.save()
         console.log('usuario Registrado Con exito', res);
         return res;
@@ -35,6 +59,5 @@ async function loginUser(name, pass) {
         console.log('Error:', e);
     }
 }
-
 
 module.exports = { resgiterUser, loginUser };

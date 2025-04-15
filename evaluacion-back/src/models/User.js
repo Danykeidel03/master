@@ -7,7 +7,7 @@ const ususarioSchema = new mongose.Schema({
     mail: { type: String, required: true, unique: true },
     pass: { type: String, required: true },
     role: { type: String, enum: ['usuario', 'admin'], default: 'usuario', required: true },
-    photo: { type: String, required: false },
+    photoName: { type: String, required: false },
     weight: { type: Number, required: true },
     height: { type: Number, required: true },
     activity: {type: String, enum: ['low', 'medium', 'high'], required: true}

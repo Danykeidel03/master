@@ -12,15 +12,17 @@ const registerController = {
                     name,
                     mail,
                     pass,
-                    photo,
+                    role,
                     weight,
                     height,
                     activity
                 } = request.body;
+                const photo = request.file;
                 const data = await resgiterUser(
                     name,
                     mail,
                     pass,
+                    role,
                     photo,
                     weight,
                     height,

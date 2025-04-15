@@ -14,3 +14,6 @@ openCloseMenu.openCloseMenu()
 user.logOut()
 exercises.customExercise()
 navigation.coordsUser()
+document.querySelector('.btnRegister').addEventListener('click', ()=>{
+    user.registerUser()
+})
