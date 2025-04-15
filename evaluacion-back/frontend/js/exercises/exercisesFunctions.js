@@ -64,7 +64,7 @@ export function endRouine() {
         window.location.reload();
         return `Has completado ${ejerciciosAcabados} de ${ejerciciosTotales} ejercicios`
     }else{
-        error.returnError('No has completado Ningun ejercicio', document.querySelector('.finalizarRutina'), document.querySelector('.modal-containerFinalizarDia'))
+        error.returnError('No has completado Ningun ejercicio', document.querySelector('.finalizarRutina'), document.querySelector('.modal-containerFinalizarDia'), true)
     }
 }
 
@@ -99,10 +99,10 @@ function toAddExerciseCustom() {
         if(urlExercise.includes('.png') || urlExercise.includes('.jpg') || urlExercise.includes('.gif')){
             addExercise(nombreExercise, urlExercise)
         }else{
-            error.returnError('Solo puedes poner un PNG, JPG o Gif', document.querySelector('.divCustom'), document.querySelector('.modal-containerAddTarea'))
+            error.returnError('Solo puedes poner un PNG, JPG o Gif', document.querySelector('.divCustom'), document.querySelector('.modal-containerAddTarea'), true)
         }
     }else{
-        error.returnError('Debes poner un nombre y una imagen', document.querySelector('.divCustom'), document.querySelector('.modal-containerAddTarea'))
+        error.returnError('Debes poner un nombre y una imagen', document.querySelector('.divCustom'), document.querySelector('.modal-containerAddTarea'), true)
     }
 }
 

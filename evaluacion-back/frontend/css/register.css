@@ -14,6 +14,7 @@
     justify-content: center;
     gap: 20px;
     width: 100%;
+    position: relative;
 }
 
 .registerForm {
@@ -29,9 +30,10 @@
     background-color: white;
     border: 1px solid black;
     border-radius: 12px;
-    padding: 12px;
+    padding: 8px;
     width: 90%;
     max-width: 460px;
+    box-sizing: unset;
 }
 
 .btnRegister {
@@ -42,6 +44,27 @@
     margin-top: 10px;
 }
 
-.btnRegister:hover{
+.btnRegister:hover {
     cursor: pointer;
+}
+
+.divPass div .divError {
+    background: transparent;
+    position: absolute;
+    left: 44px;
+    width: auto;
+    display: block;
+    text-align: left;
+    font-size: 11px;
+}
+
+.divConfirm div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divConfirm div .divError {
+    max-width: 460px;
 }

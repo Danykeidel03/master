@@ -15,20 +15,26 @@ app.use('/user', manageUser)
 
 //Parsear de forma automatica en JSON
 app.use(
-    cors({
-      origin: 'http://localhost:8888',
-      credentials: true,
-    })
-  );
-app.use(express.json()) ;
+  cors({
+    origin: 'http://localhost:8888',
+    credentials: true,
+  })
+);
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  })
+);
+app.use(express.json());
 app.use(helmet());
 app.use(mongoSanitize());
 app.use(cookieParser());
 
 const apiLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100,
-    message: 'Demasiadas peticiones desde esta ip'
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: 'Demasiadas peticiones desde esta ip'
 });
 
 //toda mi api queda protegida de muchas peticiones recurrentes y excesivas

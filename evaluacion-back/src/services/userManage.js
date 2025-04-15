@@ -6,15 +6,20 @@ const uploadDir = path.join(__dirname, '../../uploads');
 
 async function resgiterUser(name, mail, pass, role, photo, weight, height, activity) {
     try {
-
-        if(!photo || photo.originalName || !photo.buffer){
+        if(!photo || !photo.originalname || !photo.buffer){
             return ('Foto no valida')
+        }
+        console.log(mail);
+        const userExist = await User.findOne({ mail: mail });
+        console.log(userExist);
+        if (userExist) {
+            return ('Ya existe un usuario con ese mail')
         }
 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(pass, salt);
 
-        const photoName = photo.originalName;
+        const photoName = photo.originalname;
         const filePath = path.join(uploadDir, photoName)
 
         //Verifico que existe el directorio, si no, lo creo
@@ -31,6 +36,7 @@ async function resgiterUser(name, mail, pass, role, photo, weight, height, activ
             height,
             activity
         })
+
         const res = await user.save()
         console.log('usuario Registrado Con exito', res);
         return res;

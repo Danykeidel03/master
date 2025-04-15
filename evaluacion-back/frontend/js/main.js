@@ -17,3 +17,4 @@ navigation.coordsUser()
 document.querySelector('.btnRegister').addEventListener('click', ()=>{
     user.registerUser()
 })
+user.samePassword()

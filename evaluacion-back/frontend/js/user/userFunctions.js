@@ -2,6 +2,7 @@
  * SCRIPT PÀRA EL USER
  */
 
+import * as error from "../dom/error.js";
 
 export function addName() {
     if (sessionStorage.getItem('dataUser')) {
@@ -17,6 +18,24 @@ export function addName() {
             loginForm.classList.contains('active') ? loginForm.classList.remove('active') : loginForm.classList.add('active');
         })
     }
+}
+
+export function samePassword() {
+    document.querySelector('#passSecond').addEventListener('keyup', function () {
+        if (document.querySelector('.divError')) { document.querySelector('.divError').remove() }
+        const password = document.querySelector('#passSecond');
+        const pass = document.querySelector('#pass');
+        const button = document.querySelector('.btnRegister');
+
+        if (password.value !== pass.value) {
+            password.parentElement.classList.add('invalid');
+            error.returnError('Las contraseñas deben coincidir', password, document.querySelector('.invalid'), false)
+            button.disabled = true;
+        } else {
+            password.parentElement.classList.remove('invalid');
+            button.disabled = false;
+        }
+    })
 }
 
 export function logOut() {
@@ -36,28 +55,39 @@ export async function registerUser() {
     const activityUser = document.querySelector('#activity')
     const passUser = document.querySelector('#passSecond')
 
-    const formData = new FormData()
-    formData.append('name', nameUser.value)
-    formData.append('mail', mailUser.value)
-    formData.append('role', 'usuario')
-    formData.append('photo', photoUser.files[0])
-    formData.append('weight', weightUser.value)
-    formData.append('height', heightUser.value)
-    formData.append('activity', activityUser.value)
-    formData.append('pass', passUser.value)
-
-    try {
-        const response = await fetch('http://localhost:3000/user', {
-            method: 'POST',
-            body: formData
-        });
-
-        if (response.ok) {
-            console.log('usuario Registrado');
-        } else {
-            throw new Error('Error al subir los archivos');
+    if(validatePassword(passUser)){
+        const formData = new FormData()
+        formData.append('name', nameUser.value)
+        formData.append('mail', mailUser.value)
+        formData.append('role', 'usuario')
+        formData.append('photo', photoUser.files[0])
+        formData.append('weight', weightUser.value)
+        formData.append('height', heightUser.value)
+        formData.append('activity', activityUser.value)
+        formData.append('pass', passUser.value)
+    
+        try {
+            const response = await fetch('http://localhost:3000/user', {
+                method: 'POST',
+                body: formData
+            });
+    
+            if (response.ok) {
+                console.log('usuario Registrado');
+            } else {
+                throw new Error('Error al subir los archivos');
+            }
+        } catch (error) {
+            console.log(error);
         }
-    } catch (error) {
-        console.log(error);
+    }else{
+        error.returnError('Las contraseña debe tener entre 6 y 20 caracteres, al menos un numero, una mayúscula y una minúscula', document.querySelector('.btnRegister'), document.querySelector('.divConfirm div'), false)
     }
+}
+
+function validatePassword(password) {
+    let resultado = false
+    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    password.value.match(passw) ? resultado = true : resultado = false;
+    return resultado
 }
