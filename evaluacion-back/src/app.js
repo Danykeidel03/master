@@ -6,13 +6,6 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
 
-/**
- * LLAMADA RUTAS
- */
-
-const manageUser = require('./routes/userManage')
-app.use('/user', manageUser)
-
 //Parsear de forma automatica en JSON
 app.use(
   cors({
@@ -30,6 +23,13 @@ const apiLimiter = rateLimit({
   max: 100,
   message: 'Demasiadas peticiones desde esta ip'
 });
+
+/**
+ * LLAMADA RUTAS
+ */
+
+const manageUser = require('./routes/userManage')
+app.use('/user', manageUser)
 
 //toda mi api queda protegida de muchas peticiones recurrentes y excesivas
 app.use('/', apiLimiter);

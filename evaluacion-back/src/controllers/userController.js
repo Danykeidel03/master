@@ -32,12 +32,7 @@ const registerController = {
                 return response.status(201).json(data);
             } catch (e) {
                 console.error('Error en registro:', error);
-
-                if (error.code === 11000) {
-                    return res.status(409).json({ error: 'Ya existe un usuario con ese nombre.' });
-                }
-        
-                return res.status(500).json({ error: 'Error interno al registrar usuario.' });            }
+            }
         },
     ],
     loginUser: [
