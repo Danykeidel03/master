@@ -28,10 +28,16 @@ const registerController = {
                     height,
                     activity
                 );
-                response.status(201).json(data);
+
+                return response.status(201).json(data);
             } catch (e) {
-                console.log("Error al pillar producto de BBDD", e);
-            }
+                console.error('Error en registro:', error);
+
+                if (error.code === 11000) {
+                    return res.status(409).json({ error: 'Ya existe un usuario con ese nombre.' });
+                }
+        
+                return res.status(500).json({ error: 'Error interno al registrar usuario.' });            }
         },
     ],
     loginUser: [

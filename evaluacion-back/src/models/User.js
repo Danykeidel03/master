@@ -3,7 +3,7 @@ const mongose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const ususarioSchema = new mongose.Schema({
-    name: { type: String, required: true, unique: true },
+    name: { type: String, required: true},
     mail: { type: String, required: true, unique: true },
     pass: { type: String, required: true },
     role: { type: String, enum: ['usuario', 'admin'], default: 'usuario', required: true },

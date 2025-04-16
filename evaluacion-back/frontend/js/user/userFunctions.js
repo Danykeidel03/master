@@ -71,12 +71,9 @@ export async function registerUser() {
                 method: 'POST',
                 body: formData
             });
-    
-            if (response.ok) {
-                console.log('usuario Registrado');
-            } else {
-                throw new Error('Error al subir los archivos');
-            }
+            const result = await response.json()
+            console.log(result)   
+
         } catch (error) {
             console.log(error);
         }

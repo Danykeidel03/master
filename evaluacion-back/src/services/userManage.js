@@ -9,12 +9,6 @@ async function resgiterUser(name, mail, pass, role, photo, weight, height, activ
         if(!photo || !photo.originalname || !photo.buffer){
             return ('Foto no valida')
         }
-        console.log(mail);
-        const userExist = await User.findOne({ mail: mail });
-        console.log(userExist);
-        if (userExist) {
-            return ('Ya existe un usuario con ese mail')
-        }
 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(pass, salt);
@@ -42,6 +36,7 @@ async function resgiterUser(name, mail, pass, role, photo, weight, height, activ
         return res;
     } catch (e) {
         console.log('Error:', e);
+        return e
     }
 }
 async function loginUser(name, pass) {
